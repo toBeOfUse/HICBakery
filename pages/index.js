@@ -1,11 +1,12 @@
 import styles from "../styles/Home.module.css";
 
 export function getServerSideProps(context) {
-  // this code will run in the node.js server application outside of the
+  // this code will run in our next.js server application, outside of the
   // browser, which means it can access our database. the result will be passed
-  // to the React component below whenever it's being rendered (which will
-  // happen initially on the server and then later again in the browser if
-  // necessary due to user actions)
+  // to the React component that defines the page content below whenever the
+  // page is being rendered (which will happen initially on the server, and then
+  // later again in the browser if the page needs to be updated, usually due to
+  // something the user does)
   const sqlite = require("better-sqlite3");
   const db = sqlite("bakery.db");
   const test_data_row = db.prepare("select message from test_data").get();
