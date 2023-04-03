@@ -11,7 +11,10 @@ export function getServerSideProps(context) {
   const db = sqlite("bakery.db");
   const test_data_row = db.prepare("select message from test_data").get();
   return {
-    props: { message: test_data_row.message },
+    props: {
+      message: test_data_row.message,
+      product: context.query.product || null,
+    },
   };
 }
 
@@ -22,6 +25,13 @@ export default function Home(props) {
         {/* These two lines added by Mitch to demonstrate server-side props: */}
         <h2>Retrieved from SQLite database:</h2>
         <p>{props.message}</p>
+
+        {props.product && (
+          <>
+            <h2>Product from URL:</h2>
+            <p>{props.product}</p>
+          </>
+        )}
 
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
