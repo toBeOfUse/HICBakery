@@ -1,3 +1,4 @@
+import Header from "../components/Header.jsx";
 import styles from "../styles/Home.module.css";
 
 export function getServerSideProps(context) {
@@ -21,6 +22,8 @@ export function getServerSideProps(context) {
 export default function Home(props) {
   return (
     <div className={styles.container}>
+      <Header />
+
       <main className={styles.main}>
         {/* These two lines added by Mitch to demonstrate server-side props: */}
         <h2>Retrieved from SQLite database:</h2>
