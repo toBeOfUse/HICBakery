@@ -13,7 +13,7 @@ db.prepare("insert into test_data (message) values (?)").run(test_message);
 db.exec(`
 PRAGMA foreign_keys = ON;
 create table if not exists categories (
-    name string primary key,
+    name varchar(50) primary key,
     featured boolean
 );
 create table if not exists products (
@@ -32,6 +32,10 @@ create table if not exists carts (
     product_id integer references products(id),
     quantity integer default 1
 );
+create table if not exists allergens (
+    allergen_name varchar(50) primary key,
+    alternatives text  -- JSON array
+);
 `);
 
 db.exec(`
@@ -43,4 +47,11 @@ insert or replace into products
     (name, description, price, photo_file_name, category, ingredients)
     values ('oakapple inside-out cake', 'this is a weird one.', 1000, 'inside_out.jpg', 'cakes', 
         '${JSON.stringify(["flour", "vanilla extract", "wood"])}');
+
+insert or replace into allergens
+    (allergen_name, alternatives)
+    values (
+        'vanilla extract', 
+        '${JSON.stringify(["corn syrup", "pure sugar"])}'
+    );
 `);
