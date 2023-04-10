@@ -9,7 +9,7 @@ export function getServerSideProps(context) {
   // later again in the browser if the page needs to be updated, usually due to
   // something the user does)
   const sqlite = require("better-sqlite3");
-  const db = sqlite("bakery.db");
+  const db = sqlite("bakery.sqlite3");
   const test_data_row = db.prepare("select message from test_data").get();
   return {
     props: {
@@ -22,7 +22,7 @@ export function getServerSideProps(context) {
 export default function Home(props) {
   return (
     <div className={styles.container}>
-      <Header />
+      <Header collapsed={true} />
 
       <main className={styles.main}>
         {/* These two lines added by Mitch to demonstrate server-side props: */}
