@@ -22,7 +22,7 @@ const Cart = () => {
   <div className="w3-top">
     <div className="w3-row w3-padding bakery-blue">
       <div className="w3-col s3">
-        <a href="#" className="w3-button w3-block bakery-blue">
+        <a href="#" className="w3-button bakery-blue w3-hover-bakeryblue w3-block ">
           HOME
         </a>
       </div>
@@ -44,24 +44,22 @@ const Cart = () => {
     </div>
   </div>
 
- 
-  {/* Header with image */
-  <header className="bgimg w3-display-container " id="home">
+
+<>
+  {/* Header with image */}
+  <header className="bgimg w3-display-container w3-grayscale-min" id="home">
     <div className="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
       <span className="w3-tag">Open from 6am to 5pm</span>
     </div>
     <div className="w3-display-middle w3-center">
-      <span className="w3-text-white" style={{ fontSize: 90 }}>
-        the
-        <br />
-        Cafe
-      </span>
+      <Header collapsed={true} />
     </div>
     <div className="w3-display-bottomright w3-center w3-padding-large">
       <span className="w3-text-white">15 Adr street, 5015</span>
     </div>
   </header>
-  }
+</>
+
 
   {/* Add a background color and large text to the whole page */}
   <div className="w3-white w3-large">
