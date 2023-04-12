@@ -2,21 +2,21 @@ import styles from "./header.module.css";
 
 import Link from "next/link";
 
+const linkStyle = { style: { /*textDecoration: "underline"*/ } };
+
 export default function Header(props) {
     return <div className={
         [styles.container, props.collapsed ? styles.header : styles.splash].join(' ')
     }>
         <div className={styles.title}>
-            <div className={styles.titleText}>
-                <span>Cupcake Corner</span>
-            </div>
+            <span>Cupcake{props.collapsed ? " " : <br />}Corner</span>
         </div>
         <div className={styles.actionBar}>
-            <Link href="/about">About</Link>
+            <Link {...linkStyle} href="/about">About</Link>
             <div className={styles.inputContainer}>
                 <input type="text" placeholder="Search our products..." />
             </div>
-            <Link href="/cart">Your Cart</Link>
+            <Link {...linkStyle} href="/cart">Your Cart</Link>
         </div>
     </div>;
 }
