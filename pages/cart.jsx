@@ -44,8 +44,8 @@ const Cart = () => {
     </div>
   </div>
 
-  {/* Header does not want to work. Commented to avoid having 'the cafe' appear in white text */}
-  {/* Header with image 
+ 
+  {/* Header with image */
   <header className="bgimg w3-display-container " id="home">
     <div className="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
       <span className="w3-tag">Open from 6am to 5pm</span>
@@ -61,7 +61,7 @@ const Cart = () => {
       <span className="w3-text-white">15 Adr street, 5015</span>
     </div>
   </header>
-  */}
+  }
 
   {/* Add a background color and large text to the whole page */}
   <div className="w3-white w3-large">
