@@ -4,7 +4,7 @@ import Header from "../components/Header";
 const Cart = () => {
     return (
 <>
-  <title>W3.CSS Template</title>
+  <title>Cupcake Corner</title>
   <meta charSet="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -19,7 +19,6 @@ const Cart = () => {
     }}
   />
   {/* Links (sit on top) */}
-  <header>
   <div className="w3-top">
     <div className="w3-row w3-padding bakery-blue">
       <div className="w3-col s3">
@@ -44,7 +43,25 @@ const Cart = () => {
       </div>
     </div>
   </div>
+
+  {/* Header does not want to work. Commented to avoid having 'the cafe' appear in white text */}
+  {/* Header with image 
+  <header className="bgimg w3-display-container " id="home">
+    <div className="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+      <span className="w3-tag">Open from 6am to 5pm</span>
+    </div>
+    <div className="w3-display-middle w3-center">
+      <span className="w3-text-white" style={{ fontSize: 90 }}>
+        the
+        <br />
+        Cafe
+      </span>
+    </div>
+    <div className="w3-display-bottomright w3-center w3-padding-large">
+      <span className="w3-text-white">15 Adr street, 5015</span>
+    </div>
   </header>
+  */}
 
   {/* Add a background color and large text to the whole page */}
   <div className="w3-white w3-large">
@@ -55,6 +72,10 @@ const Cart = () => {
           <span className="w3-tag w3-wide">ABOUT THE CAFE</span>
         </h5>
         <p>
+          The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
         <p>
           In addition to our full espresso and brew bar menu, we serve fresh
@@ -89,7 +110,7 @@ const Cart = () => {
         <h5 className="w3-center w3-padding-48">
           <span className="w3-tag w3-wide">THE MENU</span>
         </h5>
-        <div className="w3-row w3-center w3-card w3-padding">
+        <div className="w3-row w3-left w3-card w3-padding">
           <a
             href="javascript:void(0)"
             onclick="openMenu(event, 'Eat');"
@@ -222,11 +243,17 @@ const Cart = () => {
     {/* End page content */}
   </div>
   {/* Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. */}
-  <footer className="w3-center bakery-blue w3-padding-48 w3-large">
-    <a>
+  <footer className="w3-center w3-light-grey w3-padding-48 w3-large">
     <p>
-      Copyright Cupcake Corner 2023
+      This website was made with W3schools Spaces. Make your own free website
+      today!
     </p>
+    <a
+      className="w3-button w3-round-xxlarge w3-dark-grey w3-margin-bottom"
+      href="https://www.w3schools.com/spaces"
+      target="_blank"
+    >
+      Start now
     </a>
     {/* Footer end. */}
   </footer>
