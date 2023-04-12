@@ -22,7 +22,7 @@ export function getServerSideProps(context) {
 export default function Home(props) {
   return (
     <div className={styles.container}>
-      <Header collapsed={true} />
+      <Header collapsed={false} />
       <main className={styles.main}>
         {/* These two lines added by Mitch to demonstrate server-side props: */}
         <h2>Retrieved from SQLite database:</h2>
