@@ -42,15 +42,12 @@ const Cart = () => {
           WHERE
         </a>
       </div>
-      <div>
-            <Header collapsed={true} />
-    </div>
     </div>
   </div>
   </header>
 
   {/* Add a background color and large text to the whole page */}
-  <div className="w3-sand w3-grayscale w3-large">
+  <div className="w3-white w3-large">
     {/* About Container */}
     <div className="w3-container" id="about">
       <div className="w3-content" style={{ maxWidth: 700 }}>
@@ -58,10 +55,6 @@ const Cart = () => {
           <span className="w3-tag w3-wide">ABOUT THE CAFE</span>
         </h5>
         <p>
-          The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit
-          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
         <p>
           In addition to our full espresso and brew bar menu, we serve fresh
@@ -229,17 +222,11 @@ const Cart = () => {
     {/* End page content */}
   </div>
   {/* Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. */}
-  <footer className="w3-center w3-light-grey w3-padding-48 w3-large">
+  <footer className="w3-center bakery-blue w3-padding-48 w3-large">
+    <a>
     <p>
-      This website was made with W3schools Spaces. Make your own free website
-      today!
+      Copyright Cupcake Corner 2023
     </p>
-    <a
-      className="w3-button w3-round-xxlarge w3-dark-grey w3-margin-bottom"
-      href="https://www.w3schools.com/spaces"
-      target="_blank"
-    >
-      Start now
     </a>
     {/* Footer end. */}
   </footer>
