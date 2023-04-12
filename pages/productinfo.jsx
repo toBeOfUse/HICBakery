@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 
+
 const ProductInfo = () => {
     return (
         <div>
