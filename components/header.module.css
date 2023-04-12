@@ -17,7 +17,7 @@
 }
 
 .header {
-    background-image: url(/cupcakes_header.jpg);
+    background-image: url(/cupcakes_header_more_blue.jpg);
     height: 250px;
     background-position: center bottom;
 }
@@ -40,8 +40,9 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    top: 40px;
-    /* background-color: #fffb; */
+    top: 28%;
+    border-radius: 10px;
+    background-color: #fff9;
     backdrop-filter: blur(3px);
 }
 
@@ -53,7 +54,7 @@
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
-    height: 150px;
+    height: 115px;
     font-size: 1.8em;
     padding: 60px 0 20px;
     box-sizing: border-box;
