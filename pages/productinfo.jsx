@@ -46,10 +46,10 @@ const ProductInfo = () => {
     <div className = "w3-threequarter w3-container">
       <ul className = "w3-ul">
         <li>
-          <span className="w3-cell w3-wide bakery-blue">   Product Info   </span>
+          <span className="w3-cell w3-wide bakery-blue w3-xxlarge">   Classic Vanilla Cupcake   </span>
         </li>
         <li>
-          <h1>test</h1>
+          <span className="w3 cell"> A classic vanilla cupcake made with real vanilla and topped with fresh buttercream frosting </span>
         </li>
       </ul>
     </div>
