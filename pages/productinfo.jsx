@@ -18,47 +18,17 @@ const ProductInfo = () => {
         '\n    body, html {\n      height: 100%;\n      font-family: "Inconsolata", sans-serif;\n    }\n\n    .bgimg {\n      background-position: center;\n      background-size: cover;\n      background-image: url("https://www.w3schools.com/w3images/coffeehouse.jpg");\n      min-height: 75%;\n    }\n\n    .menu {\n      display: none;\n    }\n    '
     }}
   />
-  {/* Links (sit on top) */}
-  <div className="w3-top">
+  {/* React Header (sit on top) */}
     <div className="w3-row w3-padding bakery-blue">
-      <div className="w3-col s3">
-        <a href="#" className="w3-button w3-block bakery-blue">
-          HOME
-        </a>
-      </div>
-      <div className="w3-col s3">
-        <a href="#about" className="w3-button w3-block bakery-blue">
-          ABOUT
-        </a>
-      </div>
-      <div className="w3-col s3">
-        <a href="#menu" className="w3-button w3-block bakery-blue">
-          MENU
-        </a>
-      </div>
-      <div className="w3-col s3">
-        <a href="#where" className="w3-button w3-block bakery-blue">
-          WHERE
-        </a>
-      </div>
+    <Header collapsed={true} />
+    </div>
+  
+  <div className="w3-container w3-padding-32 w3-margin-right w3-border-left">
+    <div>
+    <a className = "w3-btn w3-transparent w3-border-left" href="https://localhost:3000/search"> <h4>Return to Search Results </h4> </a>
     </div>
   </div>
 
-
-<>
-  {/* Header with image */}
-  <header className="bgimg w3-display-container w3-grayscale-min" id="home">
-    <div className="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-      <span className="w3-tag">Open from 6am to 5pm</span>
-    </div>
-    <div className="w3-display-middle w3-center">
-      <Header collapsed={true} />
-    </div>
-    <div className="w3-display-bottomright w3-center w3-padding-large">
-      <span className="w3-text-white">15 Adr street, 5015</span>
-    </div>
-  </header>
-</>
 
 
   {/* Add a background color and large text to the whole page */}
@@ -66,7 +36,7 @@ const ProductInfo = () => {
     {/* About Container */}
     <div className="w3-container" id="about">
       <div className="w3-content" style={{ maxWidth: 700 }}>
-        <h5 className="w3-center w3-padding-64">
+        <h5 className="w3-left w3-padding-64">
           <span className="w3-tag w3-wide">ABOUT THE CAFE</span>
         </h5>
         <p>
@@ -102,7 +72,8 @@ const ProductInfo = () => {
         </p>
       </div>
     </div>
-    {/* Menu Container */}
+  
+  {/* Menu Container */}
     <div className="w3-container" id="menu">
       <div className="w3-content" style={{ maxWidth: 700 }}>
         <h5 className="w3-center w3-padding-48">
