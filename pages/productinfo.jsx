@@ -45,11 +45,26 @@ const ProductInfo = () => {
     {/* Product Infomation*/}
     <div className = "w3-threequarter w3-container">
       <ul className = "w3-ul">
+        {/*Product name, product description + add to cart, and ingridents and allergenes button is stored as a list*/ }
         <li>
           <span className="w3-cell w3-wide bakery-blue w3-xxlarge">   Classic Vanilla Cupcake   </span>
         </li>
         <li>
-          <span className="w3 cell"> A classic vanilla cupcake made with real vanilla and topped with fresh buttercream frosting </span>
+          <div className="w3-display-container">
+          <span className="w3-cell w3-padding-16 w3-xlarge"> A classic vanilla cupcake made with real vanilla and topped with fresh buttercream frosting </span>
+          Add to cart
+          </div>
+        </li>
+        {/* Container containing ingredients and allergens button*/}
+        <li>
+          <div className = "w3-row w3-container w3-stretch">
+            <div className = "w3-quarter w3-large">
+              Ingredients
+            </div>
+            <div className = "w3-threequarter w3-large">
+              Allergens
+            </div>
+          </div>
         </li>
       </ul>
     </div>
