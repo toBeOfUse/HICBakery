@@ -34,6 +34,7 @@ const ProductInfo = () => {
   <div className = "w3-row w3-content ">
     {/* Product Photo */}
     <div className = "w3-quarter w3-container">
+    {/* Contains image compment and favorites recommendation in one large column*/}
     <img
           src="https://www.shutterstock.com/image-photo/tasty-cupcakes-on-stand-260nw-778287970.jpg"
           style={{ width: "100%", maxWidth: 1000 }}
