@@ -1,0 +1,45 @@
+#Container {
+    margin: 10px;
+    width: max-content;
+    user-select: none;
+}
+
+#ResultsDisplay {
+
+}
+
+#Categories {
+    outline: black solid 1px;
+    padding: 0;
+    list-style: none;
+}
+
+.category {
+    border-bottom: black 2px solid;
+}
+
+.categoryHeader {
+    font-size: 150%;
+    cursor: pointer;
+    padding: 2% 3%;
+    border-bottom: black 1px solid;
+    margin: 0;
+}
+
+.options {
+    margin: 0 5%;
+    list-style: none;
+    padding: 0;
+}
+
+.option {
+    display: none;
+    cursor: pointer;
+    padding: .5%;
+    margin: 2.5% 0;
+}
+
+.option:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
