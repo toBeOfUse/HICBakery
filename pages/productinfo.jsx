@@ -59,9 +59,9 @@ const ProductInfo = () => {
           <div class="w3-dropdown-hover">
             <button class="w3-button"> + Add to Cart </button>
               <div class="w3-dropdown-content w3-bar-block w3-border">
-                <a href="#" class="w3-bar-item w3-button">1</a>
-                <a href="#" class="w3-bar-item w3-button">2</a>
-                <a href="#" class="w3-bar-item w3-button">3</a>
+                <a href="#" className="w3-bar-item w3-button">1</a>
+                <a href="#" className="w3-bar-item w3-button">2</a>
+                <a href="#" className="w3-bar-item w3-button">3</a>
               </div>
             </div>
           </div>
