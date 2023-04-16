@@ -27,16 +27,29 @@
 }
 
 .options {
+    overflow: hidden;
     margin: 0 5%;
     list-style: none;
     padding: 0;
+    transition: max-height .75s ease-in-out;
+}
+
+.options.collapsed {
+    max-height: 0;
+}
+
+.options.expanded {
+    max-height: 500px;
 }
 
 .option {
-    display: none;
     cursor: pointer;
     padding: .5%;
     margin: 2.5% 0;
+}
+
+.option.selected {
+    background-color: rgba(0, 0, 0, .2);
 }
 
 .option:hover {
