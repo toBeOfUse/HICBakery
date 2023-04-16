@@ -178,7 +178,7 @@ const Cart = () => {
    
 
 
-    <div className = "w3-padding-64"></div>
+   <div className = "w3-padding-64"></div>
     {/* End page content */}
   </div>
 
