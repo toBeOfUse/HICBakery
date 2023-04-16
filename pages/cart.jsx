@@ -7,7 +7,6 @@ const Cart = () => {
   <title>Cupcake Corner</title>
   <meta charSet="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Inconsolata"
@@ -31,15 +30,16 @@ const Cart = () => {
   {/*Row for cart compoent and price compoent */}
   <div className= "w3-container">
     <div className= "w3-row">
-      {/*Cart containing row*/}
+
+    {/*Cart containing row - left half of the page*/}
       <div className = "w3-half w3-container">
         <div className = "w3-padding-16"></div>
         <span className="w3-cell w3-wide bakery-blue w3-xxlarge w3-border-left"> Your Cart</span>
         
-      <div className= "w3-padding-24"></div>
+        <div className= "w3-padding-24"></div>
        
         {/*Cart element*/}
-      <div className="w3-row w3-content">
+        <div className="w3-row w3-content">
         {/*Photo of product*/}
           <div className="w3-third w3-containers">
             <img
@@ -153,32 +153,38 @@ const Cart = () => {
             </ul>
           </div>   
         </div>
-
-
       </div>
+      {/*End left half of page */}
+
+      {/*Begin right half of page */}
+
+      <div className="w3-cell w3-half w3-padding-64">
+        <div className = "w3-padding-32"></div>
+        <div className = "w3-card-2 w3-center w3-margin-right w3-margin-left w3-padding-64 w3-round-medium">
+            <div className = "w3-padding-16 w3-large-text">
+              <span> Total Price: 12.45</span>
+            </div>
+            <div>
+              <button className="w3-btn bakery-blue w3-hover-aqua w3-padding-16 w3-round-medium">Proceed to Checkout</button>
+            </div>
+        </div>
+      </div>
+
+
+
     </div>
   </div>
 
    
 
 
-
+    <div className = "w3-padding-64"></div>
     {/* End page content */}
   </div>
-  {/* Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. */}
-  <footer className="w3-center w3-light-grey w3-padding-48 w3-large">
-    <p>
-      This website was made with W3schools Spaces. Make your own free website
-      today!
-    </p>
-    <a
-      className="w3-button w3-round-xxlarge w3-dark-grey w3-margin-bottom"
-      href="https://www.w3schools.com/spaces"
-      target="_blank"
-    >
-      Start now
-    </a>
-    {/* Footer end. */}
+
+  {/* Footer. */}
+  <footer className="w3-center bakery-blue w3-padding-48 w3-large">
+
   </footer>
 </>
 

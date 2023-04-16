@@ -97,11 +97,11 @@ const ProductInfo = () => {
                 <h5>Snickerdoodle</h5>
                 <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Snickerdoodle cookie topped with cinnamon. Served warm.</p>
 
-                <h5>The Corner's Cosmetic Brownie</h5>
-                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Our verison of the cosmetic brownie. Served with hot fudge </p>
+                <h5>The Corner's Cosmic Brownie</h5>
+                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Our verison of the Cosmic brownie. Served with hot fudge </p>
 
                 <h5>Reese's Cupcake</h5>
-                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Chocolate and peanut butter cupcake topped with Reess's pieces </p>
+                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Chocolate and peanut butter cupcake topped with Reese's pieces </p>
               </div>
             </div>
           </div>
@@ -114,20 +114,9 @@ const ProductInfo = () => {
   </div>
 
 
-  </div>
-  {/* Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. */}
-  <footer className="w3-center w3-light-grey w3-padding-48 w3-large">
-    <p>
-      This website was made with W3schools Spaces. Make your own free website
-      today!
-    </p>
-    <a
-      className="w3-button w3-round-xxlarge w3-dark-grey w3-margin-bottom"
-      href="https://www.w3schools.com/spaces"
-      target="_blank"
-    >
-      Start now
-    </a>
+</div>
+{/* Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. */}
+  <footer className="w3-center bakery-blue w3-padding-48 w3-large">
     {/* Footer end. */}
   </footer>
 </>
