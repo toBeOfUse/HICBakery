@@ -1,6 +1,8 @@
 import Header from "../components/Header.jsx";
 import styles from "../styles/Home.module.css";
 
+
+
 export function getServerSideProps(context) {
   // this code will run in our next.js server application, outside of the
   // browser, which means it can access our database. the result will be passed
