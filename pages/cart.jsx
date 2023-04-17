@@ -19,9 +19,9 @@ const Cart = () => {
   />
 
   {/* React Header (sit on top) */}
-  <div className="w3-row w3-padding bakery-blue">
+ 
     <Header collapsed={true} />
-    </div>
+
 
 
   {/* Add a background color and large text to the whole page */}

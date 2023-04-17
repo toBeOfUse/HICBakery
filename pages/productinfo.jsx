@@ -15,9 +15,7 @@ const ProductInfo = () => {
     }}
   />
   {/* React Header (sit on top) */}
-    <div className="w3-row w3-padding bakery-blue">
     <Header collapsed={true} />
-    </div>
   
   {/* return to results button  */}
   <div className="w3-container w3-padding-32 w3-margin-right w3-border-left">
@@ -89,19 +87,19 @@ const ProductInfo = () => {
 
               <div id="Eat" className = "w3-container w3-card-2 menu w3-padding-48"></div>
                 <h5>Banana Chocolate Chip Muffin</h5>
-                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> A classic way to start breakfast</p>
+                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> A classic way to start breakfast.</p>
 
                 <h5> Chocolate Overload Chocolate Cake</h5>
-                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> A three-layer cake featuring chocolate cake and chocolate frosting</p>
+                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> A three-layer cake featuring chocolate cake and chocolate frosting.</p>
 
                 <h5>Snickerdoodle</h5>
                 <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Snickerdoodle cookie topped with cinnamon. Served warm.</p>
 
                 <h5>The Corner's Cosmic Brownie</h5>
-                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Our verison of the Cosmic brownie. Served with hot fudge </p>
+                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Our verison of the Cosmic brownie. Served with hot fudge.</p>
 
                 <h5>Reese's Cupcake</h5>
-                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Chocolate and peanut butter cupcake topped with Reese's pieces </p>
+                <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Chocolate and peanut butter cupcake topped with Reese's pieces. </p>
               </div>
             </div>
           </div>
