@@ -7,7 +7,7 @@ export default function FilterBox() {
     const occasionItems = ['Birthday', 'Celebration', 'Casual'];
 
     return (
-        <div id={styles.Container}>
+        <div id={styles.FilterContainer}>
             <h1 id={styles.ResultsDisplay}>Results for: Vanilla</h1>
             <ul id={styles.Categories}>
                 <CollapsibleList header="Type" items={typeItems} />
