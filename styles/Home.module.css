@@ -8,6 +8,45 @@
   align-items: center;
 }
 
+.categoriesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category {
+  display: flex;
+  margin: 0 75px;
+}
+
+.category:first-child {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-top: 30px;
+}
+
+.category:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.category img {
+  width: auto;
+  height: 250px;
+  margin: 30px;
+}
+
+.category h3 {
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+.categoryTextContainer {
+  width: 400px;
+  margin: 30px;
+}
+
 .footer {
   display: flex;
   flex: 1;
