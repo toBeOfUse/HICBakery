@@ -14,7 +14,8 @@ db.exec(`
 PRAGMA foreign_keys = ON;
 create table if not exists categories (
     name varchar(50) primary key,
-    featured boolean
+    featured boolean,
+    description text
 );
 create table if not exists products (
     id integer primary key autoincrement,
@@ -40,8 +41,8 @@ create table if not exists allergens (
 
 db.exec(`
 insert or replace into categories
-    (name, featured)
-    values ('cakes', true);
+    (name, featured, description)
+    values ('cakes', true, 'these are cakes!');
 
 insert or replace into products
     (name, description, price, photo_file_name, category, ingredients)

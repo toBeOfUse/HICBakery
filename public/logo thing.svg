@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="599.36945mm"
+   height="705.5556mm"
+   viewBox="0 0 599.36945 705.5556"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="logo thing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.33184273"
+     inkscape:cx="809.11822"
+     inkscape:cy="1487.1503"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="-1940.6783"
+       y="-626.80292"
+       width="485.16959"
+       height="1630.2903"
+       id="rect23798" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4923">
+      <path
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         d="M -151.98232,271.98983 487.2695,255.48475 659.68606,-170.3246 407.81088,-511.79967 72.14448,-378.05348 -144.64546,-282.52096 -249.8249,-149.66193 Z"
+         id="path4925" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(242.66492,192.3972)">
+    <image
+       width="599.36945"
+       height="705.5556"
+       preserveAspectRatio="none"
+       xlink:href="donuts_cropped.jpg"
+       id="image832"
+       x="-144.64546"
+       y="-282.52097"
+       transform="rotate(46.050372)"
+       clip-path="url(#clipPath4923)" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="103.65733"
+       y="96.489777"
+       id="text6084"
+       transform="rotate(46.050372)"><tspan
+         sodipodi:role="line"
+         id="tspan6082"
+         style="stroke-width:0.264583"
+         x="103.65733"
+         y="96.489777" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;line-height:1.25;font-family:'Cooper Black';-inkscape-font-specification:'Cooper Black, ';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="55.171631"
+       y="-109.29253"
+       id="text18592"
+       transform="rotate(46.050372)"><tspan
+         sodipodi:role="line"
+         id="tspan18590"
+         style="stroke-width:0.264583"
+         x="55.171631"
+         y="-109.29253" /></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.18362763,0.19048683,-0.19048683,0.18362763,132.91265,8.0209207)"
+       id="text23796"
+       style="font-size:64px;line-height:1.25;font-family:'Cooper Black';-inkscape-font-specification:'Cooper Black, ';letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect23798)" />
+    <text
+       xml:space="preserve"
+       style="font-size:50.8px;line-height:1.25;font-family:'Cooper Black';-inkscape-font-specification:'Cooper Black, ';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="5.2273617"
+       y="36.443722"
+       id="text5642"><tspan
+         sodipodi:role="line"
+         id="tspan5640"
+         style="font-size:50.8px;stroke-width:0.264583"
+         x="5.2273617"
+         y="36.443722">Cupcake</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50.8px;line-height:1.25;font-family:'Cooper Black';-inkscape-font-specification:'Cooper Black, ';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="14.118645"
+       y="217.54446"
+       id="text6572"><tspan
+         sodipodi:role="line"
+         id="tspan6570"
+         style="font-size:50.8px;stroke-width:0.264583"
+         x="14.118645"
+         y="217.54446">Corner</tspan></text>
+  </g>
+</svg>
