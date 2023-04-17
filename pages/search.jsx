@@ -6,7 +6,7 @@ import ProductSearchResultItem from "../components/product-search-result-item.js
 export default function Search() {
     return (
         <>
-        <Header />
+        <Header collapsed={true} />
         <main id={styles.SearchContainer}>
             <FilterBox />
             <section id={styles.SearchResultContainer}>

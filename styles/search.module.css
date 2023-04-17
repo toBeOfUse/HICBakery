@@ -15,7 +15,18 @@
     min-width: 10rem;
     width: 70%;
     margin: auto;
-    outline: red 1px solid;
+}
+
+.resultTitle {
+    text-align: center;
+}
+
+.resultDesc {
+
+}
+
+.resultPrice {
+
 }
 
 #FilterContainer {
