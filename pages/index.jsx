@@ -1,5 +1,6 @@
 import Header from "../components/Header.jsx";
 import styles from "../styles/Home.module.css";
+import db from "../components/db.js";
 
 
 
@@ -10,8 +11,6 @@ export function getServerSideProps(context) {
   // page is being rendered (which will happen initially on the server, and then
   // later again in the browser if the page needs to be updated, usually due to
   // something the user does)
-  const sqlite = require("better-sqlite3");
-  const db = sqlite("bakery.sqlite3");
   const test_data_row = db.prepare("select message from test_data").get();
   return {
     props: {
