@@ -1,6 +1,9 @@
 import Header from "../components/Header"
 
+
+
 const AllergenInfo = () => {
+
     return (
         <>
         <>
@@ -193,6 +196,19 @@ function onButtonClick(event, index) {
   
     let id = "myDropdown" + index;
     document.getElementById(id).classList.toggle("show");
+}
+
+global.onClick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
 
 export default AllergenInfo
