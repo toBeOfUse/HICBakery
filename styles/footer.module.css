@@ -1,0 +1,33 @@
+#FooterContainer {
+    overflow: hidden;
+    background: gray;
+    display: flex;
+    justify-content: space-between;
+}
+
+#FooterContainer > p {
+    margin-left: 5%;
+}
+
+#SocialInfoContainer {
+    margin-right: 5%;
+    display: flex;
+}
+
+#PhoneNumber {
+    margin-right: 10px;
+}
+
+#PhoneIcon {
+    margin-top: 21px;
+    margin-right: 5px;
+}
+
+#FacebookIcon {
+    margin-top: 17px;
+}
+
+#InstagramIcon {
+    margin-right: 8px;
+    margin-top: 19px;
+}
