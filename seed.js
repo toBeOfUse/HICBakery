@@ -46,13 +46,13 @@ insert or replace into categories
 
 insert or replace into products
     (name, description, price, photo_file_name, category, ingredients)
-    values ('oakapple inside-out cake', 'this is a weird one.', 1000, 'inside_out.jpg', 'cakes', 
+    values ('oakapple inside-out cake', 'this is a weird one.', 1000, 'inside_out.jpg', 'cakes',
         '${JSON.stringify(["flour", "vanilla extract", "wood"])}');
 
 insert or replace into allergens
     (allergen_name, alternatives)
     values (
-        'vanilla extract', 
+        'vanilla extract',
         '${JSON.stringify(["corn syrup", "pure sugar"])}'
     );
 `);

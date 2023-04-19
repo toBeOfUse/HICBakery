@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 
-
 const ProductInfo = () => {
     return (
 <>
@@ -16,7 +15,7 @@ const ProductInfo = () => {
   />
   {/* React Header (sit on top) */}
     <Header collapsed={true} />
-  
+
   {/* return to results button  */}
   <div className="w3-container w3-padding-32 w3-margin-right w3-border-left">
     <div>
@@ -26,7 +25,7 @@ const ProductInfo = () => {
 
   {/* Add a background color and large text to the whole page */}
   <div className="w3-white w3-large">
-   
+
 
   {/* Contains product photo and info */}
   <div className = "w3-row w3-content ">
@@ -107,7 +106,7 @@ const ProductInfo = () => {
       </ul>
     </div>
   </div>
-  
+
   <div className = "w3-container w3-padding-64">
   </div>
 

@@ -1,13 +1,17 @@
 #SearchContainer {
     display:flex;
+    margin-bottom: 20px;
 }
 
 #SearchResultContainer {
+    align-content: start;
+    margin: auto;
     margin-top: 2.6%;
     min-height: 80vh;
     width: 70wh;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 20rem 20rem 20rem;
+    gap: 2rem;
 }
 
 .searchResult {
@@ -17,16 +21,21 @@
     margin: auto;
 }
 
-.resultTitle {
+.searchResult > h1 {
     text-align: center;
 }
 
-.resultDesc {
-
+.productImage {
+    display: block;
+    margin: auto;
 }
 
-.resultPrice {
+.productDesc {
+    margin-bottom: 3%;
+}
 
+.productPrice {
+    font-size: 1.5rem;
 }
 
 #FilterContainer {
@@ -87,4 +96,3 @@
 .option:hover {
     background-color: rgba(0, 0, 0, .1);
 }
-
