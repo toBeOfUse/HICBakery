@@ -1,10 +1,26 @@
 import Header from "../components/Header";
+import CartItem from "../components/cart-item";
+
+export async function getServerSideProps() {
+  const db = (await import("../components/db")).default;
+  const cartRows = db.prepare("select * from carts").all();
+  const cartItems = [];
+  for (const row of cartRows) {
+    const product = db.prepare("select * from products where id=?").get(row.product_id);
+    cartItems.push({
+      quantity_in_cart: row.quantity,
+      product
+    });
+  }
+  return {
+    props: { cartItems }
+  };
+}
 
 
-const Cart = () => {
+const Cart = ({ cartItems }) => {
   return (
     <>
-
       <Header collapsed={true} />
 
       {/* Add a background color and large text to the whole page */}
@@ -19,7 +35,7 @@ const Cart = () => {
               <div className="w3-padding-16"></div>
               <span className="w3-cell w3-wide bakery-blue w3-xxlarge w3-border-left"> Your Cart</span>
 
-              <div className="w3-padding-24"></div>
+              {cartItems.map((item, i) => <CartItem {...item} key={i} />)}
 
             </div>
             {/*End left half of page */}
