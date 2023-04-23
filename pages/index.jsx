@@ -1,8 +1,5 @@
 import Header from "../components/Header.jsx";
 import styles from "../styles/Home.module.css";
-import db from "../components/db.js";
-
-
 
 export function getServerSideProps(context) {
   // this code will run in our next.js server application, outside of the
@@ -11,11 +8,10 @@ export function getServerSideProps(context) {
   // page is being rendered (which will happen initially on the server, and then
   // later again in the browser if the page needs to be updated, usually due to
   // something the user does)
-  const test_data_row = db.prepare("select message from test_data").get();
+  // const test_data_row = db.prepare("select message from test_data").get();
+
   return {
     props: {
-      message: test_data_row.message,
-      product: context.query.product || null,
       categories: [
         { name: "Category 1", image: "/product_photos/tart.jpg", description: "Category description" },
         { name: "Category 2", image: "/product_photos/tart.jpg", description: "Category description" }
