@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { useCart } from "./CartProvider";
 import styles from "./header.module.css";
 
 import Link from "next/link";
@@ -5,6 +7,8 @@ import Link from "next/link";
 const linkStyle = { style: { /*textDecoration: "underline"*/ } };
 
 export default function Header(props) {
+    const [cart, _] = useCart();
+    const cartSize = useMemo(() => cart.reduce((acc, val) => acc + val.quantity_in_cart, 0), [cart]);
     return <div className={
         [styles.container, props.collapsed ? styles.header : styles.splash].join(' ')
     }>
@@ -18,7 +22,7 @@ export default function Header(props) {
             <div className={styles.inputContainer}>
                 <input type="text" placeholder="Search our products..." />
             </div>
-            <Link {...linkStyle} href="/cart">Your Cart</Link>
+            <Link {...linkStyle} href="/cart">Your Cart{cartSize > 0 ? ` (${cartSize})` : ''}</Link>
         </div>
     </div>;
 }
