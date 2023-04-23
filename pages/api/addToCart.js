@@ -1,7 +1,6 @@
 import db from "../../components/db.js";
 
 export default function handler(req, res) {
-  console.log(req.body);
   const body = JSON.parse(req.body);
   const product_id = body.product_id;
   const quantity = body.quantity;

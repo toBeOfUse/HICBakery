@@ -28,14 +28,24 @@
     margin-bottom: 10px;
 }
 
-.smallProductText span {
-    display: block;
-    margin: 10px 0;
-}
-
 .smallProductText {
     font-size: 0.8rem;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-top: auto;
+}
+
+.smallProductText span {
+    display: block;
+    margin: 5px 0;
+}
+
+.smallProductText input {
+    margin-left: 10px;
+    width: 50px;
+}
+
+.smallProductText button {
+    margin-left: 10px;
 }

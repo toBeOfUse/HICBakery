@@ -1,29 +1,20 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import CartItem from "../components/cart-item";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart.module.css";
-import db from "../components/db.js";
+import { useCart } from "../components/CartProvider";
 
-export async function getServerSideProps() {
-  const cartRows = db.prepare("select * from carts").all();
-  const cartItems = [];
-  let totalPrice = 0;
-  for (const row of cartRows) {
-    const product = db.prepare("select * from products where id=?").get(row.product_id);
-    cartItems.push({
-      quantity_in_cart: row.quantity,
-      product
-    });
-    totalPrice += product.price;
-  }
-  return {
-    props: { cartItems, totalPrice }
-  };
-}
+const Cart = () => {
+  const [cartItems, updateCart] = useCart();
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    setTotalPrice(cartItems.reduce(
+      (acc, val) => acc + val.product.price * val.quantity_in_cart, 0
+    ));
+  }, [cartItems]);
 
-
-const Cart = ({ cartItems, totalPrice }) => {
   return (
     <>
       <Header collapsed={true} />
@@ -38,7 +29,7 @@ const Cart = ({ cartItems, totalPrice }) => {
             {/*Cart containing row - left half of the page*/}
             <div>
 
-              {cartItems.map((item, i) => <CartItem {...item} key={i} />)}
+              {cartItems.map((item, i) => <CartItem {...item} key={i} onCartItemUpdate={updateCart} />)}
 
             </div>
             {/*End left half of page */}
@@ -48,7 +39,8 @@ const Cart = ({ cartItems, totalPrice }) => {
             <div className={"w3-card-2 w3-center w3-round-medium " + styles.priceContainer}>
               <p> Total Price: ${formatPrice(totalPrice)}</p>
               <div>
-                <Link href="/checkout" className="bakery-blue" style={{ padding: 12 }}>
+                <Link href={totalPrice ? '/checkout' : ''} className="bakery-blue"
+                  style={{ padding: 12, backgroundColor: totalPrice ? "" : "lightgray" }}>
                   Proceed to Checkout
                 </Link>
               </div>
