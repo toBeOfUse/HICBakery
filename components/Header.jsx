@@ -9,7 +9,9 @@ export default function Header(props) {
         [styles.container, props.collapsed ? styles.header : styles.splash].join(' ')
     }>
         <div className={styles.title}>
-            <span>Cupcake{props.collapsed ? " " : <br />}Corner</span>
+            <Link href="/">
+                <span>Cupcake{props.collapsed ? " " : <br />}Corner</span>
+            </Link>
         </div>
         <div className={styles.actionBar}>
             <Link {...linkStyle} href="/about">About</Link>
