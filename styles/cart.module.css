@@ -23,6 +23,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 230px;
+    margin-left: 25px;
 }
 
 .priceContainer p {
