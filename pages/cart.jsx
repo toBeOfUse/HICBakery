@@ -3,9 +3,9 @@ import Header from "../components/Header";
 import CartItem from "../components/cart-item";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart.module.css";
+import db from "../components/db.js";
 
 export async function getServerSideProps() {
-  const db = (await import("../components/db")).default;
   const cartRows = db.prepare("select * from carts").all();
   const cartItems = [];
   let totalPrice = 0;

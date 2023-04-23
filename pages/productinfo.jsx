@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import Header from "../components/Header";
+import db from "../components/db";
 
 
 export async function getServerSideProps(context) {
-  const db = (await import("../components/db")).default;
   const productID = context.query.product ?? 1;
   const product = db.prepare("select * from products where id=?").get(productID);
   return { props: { product } };
