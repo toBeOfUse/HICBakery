@@ -19,14 +19,14 @@ const Cart = () => {
   />
 
   {/* React Header (sit on top) */}
- 
+
     <Header collapsed={true} />
 
 
 
   {/* Add a background color and large text to the whole page */}
   <div className="w3-white w3-large">
-    
+
   {/*Row for cart compoent and price compoent */}
   <div className= "w3-container">
     <div className= "w3-row">
@@ -35,9 +35,9 @@ const Cart = () => {
       <div className = "w3-half w3-container">
         <div className = "w3-padding-16"></div>
         <span className="w3-cell w3-wide bakery-blue w3-xxlarge w3-border-left"> Your Cart</span>
-        
+
         <div className= "w3-padding-24"></div>
-       
+
         {/*Cart element*/}
         <div className="w3-row w3-content">
         {/*Photo of product*/}
@@ -74,7 +74,7 @@ const Cart = () => {
                 </div>
               </li>
             </ul>
-          </div>   
+          </div>
         </div>
 
         {/*just another product cart item*/}
@@ -113,9 +113,9 @@ const Cart = () => {
                 </div>
               </li>
             </ul>
-          </div>   
+          </div>
         </div>
-      
+
         <div className="w3-row w3-content w3-padding-top-32">
         {/*Photo of product*/}
           <div className="w3-third w3-containers">
@@ -151,7 +151,7 @@ const Cart = () => {
                 </div>
               </li>
             </ul>
-          </div>   
+          </div>
         </div>
       </div>
       {/*End left half of page */}
@@ -175,7 +175,7 @@ const Cart = () => {
     </div>
   </div>
 
-   
+
 
 
    <div className = "w3-padding-64"></div>

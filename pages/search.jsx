@@ -6,59 +6,59 @@ import Footer from "../components/footer"
 import { useEffect, useState } from "react";
 
 export default function Search() {
-    const [activeFilters, setActiveFilters] = useState({
-        type: [],
-        flavor: [],
-        occasion: []
-    });
+    const [searchInput, setSearchInput] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+    const [activeFilters, setActiveFilters] = useState([]);
+
+    function doSearch() {
+        let encodedFilters = "";
+        activeFilters.forEach(category => {
+            encodedFilters += `&category_filter=${category}`;
+        });
+        fetch(`/api/search?keyword=${searchInput}` + encodedFilters)
+            .then(res => {
+                if (res.ok) {
+                    return res.json().then(rows => setSearchResults(rows));
+                } else {
+                    return res.json().then(error => {
+                        console.log("Error:", error);
+                        setSearchResults([]);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+            });
+    }
 
     useEffect(()=>{
         console.log('Active filters update!', activeFilters);
     }, [activeFilters]);
 
-    function onFilterClick(header, name, clicked) {
-        setActiveFilters((prevState)=>{
-            const updatedFilters = {...prevState};
+    function addFilter(header, name, clicked) {
+        setActiveFilters(prevState => {
+            let updatedFilters = [...prevState];
             if (clicked) {
-                if (!updatedFilters[header].includes(name)) {
-                    updatedFilters[header].push(name);
+                if (!updatedFilters.includes(name)) {
+                    updatedFilters.push(name);
                 }
-            } else {
-                updatedFilters[header] = updatedFilters[header].filter((item) =>
-                    item !== name
-                );
+            }
+            else {
+                if (updatedFilters.includes(name)) {
+                    updatedFilters = updatedFilters.filter(filter => filter !== name)
+                }
             }
             return updatedFilters;
         });
     }
 
-    const products = [
-        {
-            name: "cupcake",
-            price: 10.99,
-            desc: "This is a cupcake",
-            imageSrc: "/splash_cupcake.jpg"
-        },
-        {
-            name: "cupcakeTwo",
-            price: 10.88,
-            desc: "This is another cupcake",
-            imageSrc: "/splash_cupcake.jpg"
-        },
-        {
-            name: "cupcakeThree",
-            price: 11.99,
-            desc: "This is also cupcake",
-            imageSrc: "/splash_cupcake.jpg"
-        }
-    ]
     return (
         <>
-        <Header collapsed={true} />
+        <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
         <main id={styles.SearchContainer}>
-            <FilterBox onFilterClick={onFilterClick} />
+            <FilterBox addFilter={addFilter} />
             <section id={styles.SearchResultContainer}>
-                {products.map((product, index) =>
+                {searchResults.map((product, index) =>
                     <ProductSearchResultItem key={index} product={product} />
                 )};
             </section>

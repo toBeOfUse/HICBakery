@@ -4,9 +4,9 @@ import Image from 'next/image'
 export default function ProductSearchResultItem({ product }) {
     return (
         <div className={styles.searchResult}>
-            <Image className={styles.productImage} width={200} height={200} src={product["imageSrc"]} alt="cupcake"/>
+            <Image className={styles.productImage} width={200} height={200} src={'/' + product["photo_file_name"]} alt="cupcake"/>
             <h1 className={styles.productTitle}>{product["name"]}</h1>
-            <p className={styles.productDesc}>{product["desc"]}</p>
+            <p className={styles.productDesc}>{product["description"]}</p>
             <i className={styles.productPrice}>${product["price"]}</i>
         </div>
     );

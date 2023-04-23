@@ -14,7 +14,8 @@ export default function Header(props) {
         <div className={styles.actionBar}>
             <Link {...linkStyle} href="/about">About</Link>
             <div className={styles.inputContainer}>
-                <input type="text" placeholder="Search our products..." />
+                <input value={props.searchInput} onChange={(e)=> props.setSearchInput(e.target.value)} type="text" placeholder="Search our products..." />
+                <button onClick={props.doSearch}>Search</button>
             </div>
             <Link {...linkStyle} href="/cart">Your Cart</Link>
         </div>
