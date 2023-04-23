@@ -23,7 +23,7 @@ export default function CartItem({ product, quantity_in_cart }) {
                             {quantity_in_cart}
                         </div>
                         <div className="w3-left 23-medium w3-padding-8">
-                            Price: ${(product.price / 1000).toFixed(2)}
+                            Price: ${(product.price / 100).toFixed(2)}
                         </div>
                     </div>
                 </li>
