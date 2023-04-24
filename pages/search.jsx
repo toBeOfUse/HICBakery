@@ -37,7 +37,7 @@ export default function Search() {
 
     const router = useRouter();
     useEffect(() => {
-        if (router.query.keyword) {
+        if (router.query.keyword || activeFilters.length) {
             setSearchInput(router.query.keyword);
             // setSearchInput does not immediately affect the searchInput
             // variable (it changes when Search() is called again and this
