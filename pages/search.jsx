@@ -12,7 +12,7 @@ export default function Search() {
     const [activeFilters, setActiveFilters] = useState([]);
     const [currentSearch, setCurrentSearch] = useState("");
 
-    function doSearch() {
+    function doSearch(searchInput) {
         let encodedFilters = "";
         activeFilters.forEach(category => {
             encodedFilters += `&category_filter=${category}`;
@@ -36,9 +36,15 @@ export default function Search() {
 
     const router = useRouter();
     useEffect(() => {
-        setSearchInput(router.query.keyword);
-        doSearch();
-    }, [router.query]);
+        if (router.query.keyword) {
+            setSearchInput(router.query.keyword);
+            // setSearchInput does not immediately affect the searchInput
+            // variable (it changes when Search() is called again and this
+            // component is re-rendered), so the new search input must be passed
+            // to doSearch directly
+            doSearch(router.query.keyword);
+        }
+    }, [router.query.keyword]);
 
     useEffect(()=>{
         console.log('Active filters update!', activeFilters);
