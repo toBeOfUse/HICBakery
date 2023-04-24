@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    align-items: stretch;
+    padding: 8px 50px 40px 0;
+    border-bottom: 1px solid gray;
+}
+
+.image {
+    width: 300px;
+    height: auto;
+    max-height: 185px;
+    border-radius: 5px;
+}
+
+.productName {
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+.productText {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.productDescription {
+    margin-bottom: 10px;
+}
+
+.smallProductText {
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.smallProductText span {
+    display: block;
+    margin: 5px 0;
+}
+
+.smallProductText input {
+    margin-left: 10px;
+    width: 50px;
+}
+
+.smallProductText button {
+    margin-left: 10px;
+}

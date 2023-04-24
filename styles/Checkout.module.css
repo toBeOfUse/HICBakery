@@ -1,0 +1,86 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  margin: 30px auto;
+}
+
+.header {
+  font-size: 2em;
+  text-align: center;
+}
+
+.contentContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px;
+}
+
+#itemsContainer {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 3px gray;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+}
+
+#itemsContainer h4 {
+  margin: 0 0 20px;
+}
+
+#itemsContainer button {
+  margin: 15px auto 10px auto;
+}
+
+#itemTable {
+  width: 400px;
+  border-collapse: collapse;
+}
+
+#itemTable thead {
+  text-decoration: underline;
+}
+
+#itemTable th,
+#itemTable td {
+  /* border: 1px solid black; */
+  text-align: right;
+  font-weight: normal;
+  padding: 2px 8px;
+}
+
+#itemTable td:first-child,
+#itemTable th:first-child {
+  width: 50%;
+  text-align: left;
+}
+
+#itemTable tr:last-child,
+#itemTable tr:last-child td {
+  border: none;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.formsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.inputsRow {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form {
+  width: 400px;
+  margin-bottom: 30px;
+}
