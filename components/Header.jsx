@@ -20,17 +20,12 @@ export default function Header(props) {
     }
 
     function handleClick() {
-        if (router.pathname !== '/search') {
-            router.push(`/search?keyword=${searchInput}`);
-        } else {
-            props.doSearch();
-        }
+        router.push(`/search?keyword=${searchInput}`);
     };
 
     function handleChange(e) {
-        if (router.pathname !== '/search') {
-            setSearchInput(e.target.value);
-        } else {
+        setSearchInput(e.target.value);
+        if (props.setSearchInput) {
             props.setSearchInput(e.target.value);
         }
     }
