@@ -14,12 +14,15 @@ export default function Search() {
     const [currentSearch, setCurrentSearch] = useState("");
 
     function doSearch(searchInput) {
-        let encodedFilters = "";
-        activeFilters.forEach(category => {
-            encodedFilters += `&category_filter=${category}`;
-        });
         setCurrentSearch(searchInput);
-        fetch(`/api/search?keyword=${searchInput}` + encodedFilters)
+        const params = new URLSearchParams();
+        if (searchInput) {
+            params.append("keyword", searchInput);
+        }
+        for (const filter of activeFilters) {
+            params.append("category_filter", filter);
+        }
+        fetch(`/api/search?${params.toString()}`)
             .then(res => {
                 if (res.ok) {
                     return res.json().then(rows => setSearchResults(rows));
@@ -36,6 +39,17 @@ export default function Search() {
     }
 
     const router = useRouter();
+
+    useEffect(() => {
+        let newFilter = router.query.category_filter;
+        if (newFilter) {
+            if (!Array.isArray(newFilter)) {
+                newFilter = [newFilter];
+            }
+            setActiveFilters(af => af.concat(newFilter));
+        }
+    }, [router.query.category_filter]);
+
     useEffect(() => {
         if (router.query.keyword || activeFilters.length) {
             setSearchInput(router.query.keyword);
