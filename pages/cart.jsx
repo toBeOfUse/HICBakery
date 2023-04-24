@@ -9,7 +9,7 @@ import styles from "../styles/cart.module.css";
 import { useCart } from "../components/CartProvider";
 
 const Cart = () => {
-  const [cartItems, updateCart] = useCart();
+  const [cartItems, _] = useCart();
   const totalPrice = useMemo(() =>
     cartItems.reduce(
       (acc, val) => acc + val.product.price * val.quantity_in_cart, 0
@@ -24,14 +24,17 @@ const Cart = () => {
       <Header collapsed={true} />
       <div className={styles.container}>
 
-        {/*Row for cart compoent and price compoent */}
+        {/*Row for cart compoent and price component */}
         <div>
           <p className={styles.header}> Your Cart</p>
           <div className={styles.primaryContentContainer}>
             {/*Cart containing row - left half of the page*/}
             <div>
 
-              {cartItems.map((item, i) => <CartItem {...item} key={i} onCartItemUpdate={updateCart} />)}
+              {cartItems.length > 0 ?
+                cartItems.map((item, i) => <CartItem {...item} key={i} />) :
+                <p>Your cart is empty.</p>
+              }
 
             </div>
             {/*End left half of page */}
