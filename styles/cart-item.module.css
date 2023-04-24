@@ -10,6 +10,7 @@
     height: auto;
     max-height: 185px;
     border-radius: 5px;
+    object-fit: contain;
 }
 
 .productName {
