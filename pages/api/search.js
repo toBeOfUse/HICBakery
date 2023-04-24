@@ -29,9 +29,6 @@ export default function handler(req, res) {
         searchForName ? "AND" : "WHERE"
         } category_name IN ${categoryFilters}`;
     }
-
-    console.log(query);
-
     const results = searchForName
         ? db.prepare(query).all("%" + searchForName + "%")
         : db.prepare(query).all();

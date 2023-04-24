@@ -58,6 +58,8 @@ export default function Search() {
             // component is re-rendered), so the new search input must be passed
             // to doSearch directly
             doSearch(router.query.keyword);
+        } else {
+            doSearch("");
         }
     }, [router.query.keyword, activeFilters]);
 
