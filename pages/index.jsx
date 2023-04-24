@@ -29,11 +29,16 @@ export function getServerSideProps(context) {
     }
   }
 
-
   return {
     props: { categories: Object.values(groupedProducts) },
   };
 }
+
+const ProductLink = ({ product, children }) => (
+  <Link href={`/productInfo?product=${product.id}`}
+    style={{ textDecoration: "underline" }}>
+    {children}
+  </Link>);
 
 export default function Home({ categories }) {
   return <>
@@ -49,17 +54,15 @@ export default function Home({ categories }) {
               flexDirection: i % 2 == 0 ? "row" : "row-reverse",
               backgroundColor: i % 2 == 0 ? "lavender" : "pink"
             }}>
-            <img src={c[0].photo_file_name} />
+            <ProductLink product={c[0]}>
+              <img title={c[0].name} src={c[0].photo_file_name} alt={`Picture of ${c[0].name}`} />
+            </ProductLink>
             <div className={styles.categoryTextContainer}>
               <h3><Link href={`/search?category_filter=${c[0].category_name}`}>{c[0].category_name}</Link></h3>
               <p>{c[0].category_description}</p>
               {c.map(
                 (p, i) => <Fragment key={p.id} >
-                  <a
-                    href={`/productInfo?product=${p.id}`}
-                    style={{ textDecoration: "underline" }}>
-                    {p.name}
-                  </a>
+                  <ProductLink product={p}>{p.name}</ProductLink>
                   {i != c.length - 1 && <span> | </span>}
                 </Fragment>)
               }
