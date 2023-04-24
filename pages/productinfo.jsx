@@ -41,7 +41,7 @@ const ProductInfo = ({ product }) => {
           <div className="w3-quarter w3-container">
             {/* Contains image compment and favorites recommendation in one large column*/}
             <img
-              src={`/product_photos/${product.photo_file_name}`}
+              src={`/${product.photo_file_name}`}
               style={{ width: "100%", maxWidth: 1000 }}
             />
             <div className="w3-padding-64"></div>
@@ -62,11 +62,11 @@ const ProductInfo = ({ product }) => {
                   <span className="w3-cell w3-padding-16 w3-xlarge">{product.description}</span>
 
                   {/*Add to Cart component */}
-                  <div class="w3-dropdown-hover">
+                  <div className="w3-dropdown-hover">
                     <input type="number" value={cartQuantity} style={{ width: 50 }}
                       onChange={e => setCartQuantity(parseInt(e.target.value))}
                       min="1" max="5"></input>
-                    <button onClick={addToCart} class="w3-button"> + Add to Cart </button>
+                    <button onClick={addToCart} className="w3-button"> + Add to Cart </button>
                   </div>
                 </div>
               </li>
@@ -75,10 +75,10 @@ const ProductInfo = ({ product }) => {
               <li>
                 <div className="w3-row w3-container w3-stretch">
                   <div className="w3-quarter w3-large">
-                    <button class="w3-btn w3-transparent w3-hover-aqua">Ingredients</button>
+                    <button className="w3-btn w3-transparent w3-hover-aqua">Ingredients</button>
                   </div>
                   <div className="w3-threequarter w3-large">
-                    <button class="w3-btn w3-transparent w3-hover-aqua">Allergens</button>
+                    <button className="w3-btn w3-transparent w3-hover-aqua">Allergens</button>
                   </div>
                 </div>
               </li>

@@ -46,7 +46,7 @@ export default function Search() {
         }
     }, [router.query.keyword]);
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log('Active filters update!', activeFilters);
     }, [activeFilters]);
 
@@ -69,16 +69,16 @@ export default function Search() {
 
     return (
         <>
-        <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
-        <main id={styles.SearchContainer}>
-            <FilterBox currentSearch={currentSearch} addFilter={addFilter} />
-            <section id={styles.SearchResultContainer}>
-                {searchResults.map((product, index) =>
-                    <ProductSearchResultItem key={index} product={product} />
-                )}
-            </section>
-        </main>
-        <Footer/>
+            <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
+            <main id={styles.SearchContainer}>
+                <FilterBox currentSearch={currentSearch} addFilter={addFilter} />
+                <section id={styles.SearchResultContainer}>
+                    {searchResults.map((product, index) =>
+                        <ProductSearchResultItem key={index} product={product} />
+                    )}
+                </section>
+            </main>
+            <Footer />
         </>
     )
 }
