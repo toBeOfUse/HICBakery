@@ -44,7 +44,7 @@ export default function Search() {
             // to doSearch directly
             doSearch(router.query.keyword);
         }
-    }, [router.query.keyword]);
+    }, [router.query.keyword, activeFilters]);
 
     useEffect(() => {
         console.log('Active filters update!', activeFilters);
