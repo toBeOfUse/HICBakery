@@ -32,7 +32,11 @@
     font-family: baloo;
     line-height: 1.1;
     color: white;
+}
+
+.title span {
     -webkit-text-stroke: 3px black;
+    -webkit-text-fill-color: white;
 }
 
 .header .title {

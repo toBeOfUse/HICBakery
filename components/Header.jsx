@@ -6,8 +6,6 @@ import { useState } from "react";
 
 import Link from "next/link";
 
-const linkStyle = { style: { /*textDecoration: "underline"*/ } };
-
 export default function Header(props) {
     const router = useRouter();
     const [cart, _] = useCart();
@@ -39,12 +37,15 @@ export default function Header(props) {
             </Link>
         </div>
         <div className={styles.actionBar}>
-            <Link {...linkStyle} href="/about">About</Link>
+            <Link href="/about">About</Link>
             <div className={styles.inputContainer}>
-                <input onKeyDown={handleKeyDown} value={router.pathname !== "/search" ? searchInput : props.searchInput} onChange={handleChange} type="text" placeholder="Search our products..." />
+                <input
+                    onKeyDown={handleKeyDown}
+                    value={router.pathname !== "/search" ? searchInput : props.searchInput}
+                    onChange={handleChange} type="text" placeholder="Search our products..." />
                 <button id={styles.SearchButton} onClick={handleClick}>🔎</button>
             </div>
-            <Link {...linkStyle} href="/cart">Your Cart{cartSize > 0 ? ` (${cartSize})` : ''}</Link>
+            <Link href="/cart">Your Cart{cartSize > 0 ? ` (${cartSize})` : ''}</Link>
         </div>
     </div>;
 }
