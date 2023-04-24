@@ -47,47 +47,47 @@ create table if not exists allergens (
 
 db.exec(`
 -- TYPES
-insert or replace into categories
-    (name, featured, description)
-    values ('cakes', true, 'these are cakes!');
+INSERT OR REPLACE INTO categories
+(name, featured, description)
+VALUES ('cakes', true, 'Delight in the world of delectable and scrumptious cakes, perfect for every occasion!');
 
-insert or replace into categories
-    (name, featured, description)
-    values ('cupcakes', false, 'these are cupcakes!');
+INSERT OR REPLACE INTO categories
+(name, featured, description)
+VALUES ('cupcakes', false, 'Indulge in the sweetness of heavenly cupcakes, an irresistible treat to brighten your day.');
 
-insert or replace into categories
-    (name, featured, description)
-    values ('cookies', false, 'these are cookies!');
+INSERT OR REPLACE INTO categories
+(name, featured, description)
+VALUES ('cookies', false, 'Savor the deliciousness of mouth-watering cookies, freshly baked to perfection.');
 
 -- FLAVORS
-insert or replace into categories
-    (name, featured, description)
-    values ('chocolate', false, 'this is chocolate!');
+INSERT OR REPLACE INTO categories
+(name, featured, description)
+VALUES ('chocolate', false, 'Experience the rich and decadent taste of smooth, velvety chocolate in every bite.');
 
-insert or replace into categories
-    (name, featured, description)
-    values ('vanilla', true, 'this is vanilla!');
+INSERT OR REPLACE INTO categories
+(name, featured, description)
+VALUES ('vanilla', true, 'Relish in the timeless classic flavor of creamy and aromatic vanilla, always a fan favorite.');
 
-insert or replace into categories
-    (name, featured, description)
-    values ('caramel', false, 'this is caramel!');
+INSERT OR REPLACE INTO categories
+(name, featured, description)
+VALUES ('caramel', false, 'Delve into the world of luxurious caramel, offering a perfect balance of sweetness and a hint of salt.');
 
-insert or replace into categories
-    (name, featured, description)
-    values ('coconut', false, 'this is coconut!');
+INSERT OR REPLACE INTO categories
+(name, featured, description)
+VALUES ('coconut', false, 'Transport yourself to a tropical paradise with the exotic and refreshing flavor of coconut.');
 
 -- OCCASIONS
 insert or replace into categories
     (name, featured, description)
-    values ('birthday', true, 'this is for a birthday!');
+    values ('birthday', true, 'Celebrate life''s special moments with our delightful birthday treats, designed to make the day extra memorable.');
 
 insert or replace into categories
     (name, featured, description)
-    values ('celebration', false, 'this is for a celebration!');
+    values ('celebration', false, 'Mark your joyous occasions with our exquisite selection of celebration goodies, perfect for sharing with loved ones.');
 
 insert or replace into categories
     (name, featured, description)
-    values ('casual', false, 'this is for casual!');
+    values ('casual', false, 'Satisfy your cravings with our casual delights, a wonderful assortment of comfort food that suits any laid-back gathering.');
 
 insert or replace into allergens
     (allergen_name, alternatives)
