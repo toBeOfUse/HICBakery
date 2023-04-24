@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function ProductSearchResultItem({ product }) {
     return (
         <div className={styles.searchResult}>
-            <Link href={`/productinfo?product=${product.id}`}>
+            <Link href={`/productInfo?product=${product.id}`}>
                 <Image className={styles.productImage} width={200} height={200} src={'/' + product["photo_file_name"]} alt="cupcake" />
                 <h1 className={styles.productTitle}>{product["name"]}</h1>
             </Link>
