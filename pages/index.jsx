@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header.jsx";
+import Footer from "../components/footer.jsx";
 import styles from "../styles/Home.module.css";
 
 export function getServerSideProps(context) {
@@ -43,6 +44,7 @@ export default function Home({ categories }) {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   </>;
 }

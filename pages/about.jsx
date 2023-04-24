@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import styles from "../styles/about.module.css";
+import Footer from "../components/footer";
 
 export default function AboutPage() {
     return <>
@@ -23,5 +24,6 @@ export default function AboutPage() {
                 </figcaption>
             </figure>
         </div>
+        <Footer />
     </>;
 }
