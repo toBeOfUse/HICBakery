@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import db from "../components/db";
+import { useCart } from "../components/CartProvider";
 
 
 export async function getServerSideProps(context) {
@@ -13,10 +14,18 @@ export async function getServerSideProps(context) {
 
 
 const ProductInfo = ({ product }) => {
+  const [cart, updateCart] = useCart();
   const [cartQuantity, setCartQuantity] = useState(1);
+  const inCart = useMemo(
+    () => cart.find(c => c.product.id == product.id)?.quantity_in_cart,
+    [cart, product.id]
+  );
 
   const addToCart = () => {
-    fetch("/api/addToCart", { method: "POST", body: JSON.stringify({ product_id: product.id, quantity: cartQuantity }) });
+    fetch("/api/addToCart", {
+      method: "POST",
+      body: JSON.stringify({ product_id: product.id, quantity: cartQuantity })
+    }).then(updateCart);
   };
 
   return (
@@ -62,11 +71,12 @@ const ProductInfo = ({ product }) => {
                   <span className="w3-cell w3-padding-16 w3-xlarge">{product.description}</span>
 
                   {/*Add to Cart component */}
-                  <div className="w3-dropdown-hover">
+                  <div>
                     <input type="number" value={cartQuantity} style={{ width: 50 }}
                       onChange={e => setCartQuantity(parseInt(e.target.value))}
                       min="1" max="5"></input>
                     <button onClick={addToCart} className="w3-button"> + Add to Cart </button>
+                    {inCart && <span>({inCart} in cart already)</span>}
                   </div>
                 </div>
               </li>
