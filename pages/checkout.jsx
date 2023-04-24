@@ -27,15 +27,9 @@ const Checkout = () => {
 
         <div className={styles.contentContainer}>
           <div id={styles.formsContainer}>
-            <div className={styles.form}>
-              <h3>Contact Information</h3>
-              <div className={styles.inputsRow}>
-                <FormField label="Email" placeholder="joeshmoe@earthlink.com" />
-              </div>
-            </div>
 
             <div className={styles.form}>
-              <h3>Billing Information</h3>
+              <h3>Billing Address</h3>
               <div className="container">
 
                 <div className={styles.inputsRow}>
@@ -55,6 +49,28 @@ const Checkout = () => {
 
               </div>
             </div>
+
+            <div className={styles.form}>
+              <h3>Credit Card Information</h3>
+
+              <div className={styles.inputsRow}>
+                <FormField label="Credit Card Number" placeholder="1111 2222 3333 444" />
+              </div>
+
+              <div className={styles.inputsRow}>
+                <FormField label="CVV" placeholder="123" />
+                <FormField label="Expiration" placeholder="12/23" />
+              </div>
+
+            </div>
+
+            <div className={styles.form}>
+              <h3>Contact Information</h3>
+              <div className={styles.inputsRow}>
+                <FormField label="Email" placeholder="joeshmoe@earthlink.com" />
+              </div>
+            </div>
+
           </div>
 
           <div id={styles.itemsContainer}>
