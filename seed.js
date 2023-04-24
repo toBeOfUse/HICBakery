@@ -105,7 +105,6 @@ function createProduct(
   ingredients = []
 ) {
   const photoFileName = name.toLowerCase().replaceAll(" ", "_") + ".jpg";
-  console.log(photoFileName);
   const id = db
     .prepare(
       `insert into products
