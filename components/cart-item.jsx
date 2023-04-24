@@ -2,8 +2,10 @@ import Link from "next/link";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart-item.module.css";
 import { useState } from "react";
+import { useCart } from "./CartProvider";
 
-export default function CartItem({ product, quantity_in_cart, onCartItemUpdate }) {
+export default function CartItem({ product, quantity_in_cart }) {
+    const [_, updateCart] = useCart();
     const [quantity, setQuantity] = useState(quantity_in_cart);
     const updateQuantity = (newQuantity) => {
         fetch("/api/changeCartQuantity", {
@@ -12,9 +14,7 @@ export default function CartItem({ product, quantity_in_cart, onCartItemUpdate }
                 product_id: product.id,
                 quantity: newQuantity ?? quantity
             })
-        })
-            .then(() => { onCartItemUpdate() }
-            );
+        }).then(updateCart);
     };
     return <div className={styles.container}>
         {/*Photo of product*/}

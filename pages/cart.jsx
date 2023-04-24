@@ -9,7 +9,7 @@ import styles from "../styles/cart.module.css";
 import { useCart } from "../components/CartProvider";
 
 const Cart = () => {
-  const [cartItems, updateCart] = useCart();
+  const [cartItems, _] = useCart();
   const totalPrice = useMemo(() =>
     cartItems.reduce(
       (acc, val) => acc + val.product.price * val.quantity_in_cart, 0
@@ -32,7 +32,7 @@ const Cart = () => {
             <div>
 
               {cartItems.length > 0 ?
-                cartItems.map((item, i) => <CartItem {...item} key={i} onCartItemUpdate={updateCart} />) :
+                cartItems.map((item, i) => <CartItem {...item} key={i} />) :
                 <p>Your cart is empty.</p>
               }
 
