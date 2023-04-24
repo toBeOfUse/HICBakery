@@ -66,7 +66,7 @@ insert or replace into categories
 
 insert or replace into categories
     (name, featured, description)
-    values ('vanilla', false, 'this is vanilla!');
+    values ('vanilla', true, 'this is vanilla!');
 
 insert or replace into categories
     (name, featured, description)
@@ -79,7 +79,7 @@ insert or replace into categories
 -- OCCASIONS
 insert or replace into categories
     (name, featured, description)
-    values ('birthday', false, 'this is for a birthday!');
+    values ('birthday', true, 'this is for a birthday!');
 
 insert or replace into categories
     (name, featured, description)
@@ -97,40 +97,120 @@ insert or replace into allergens
     );
 `);
 
-function createProduct(name="", description="", price=0, categories=[], ingredients=[]) {
-    const photoFileName = name.toLowerCase().replaceAll(" ", "_") + ".jpg";
-    console.log(photoFileName);
-    const id = db.prepare(
-        `insert into products
+function createProduct(
+  name = "",
+  description = "",
+  price = 0,
+  categories = [],
+  ingredients = []
+) {
+  const photoFileName = name.toLowerCase().replaceAll(" ", "_") + ".jpg";
+  console.log(photoFileName);
+  const id = db
+    .prepare(
+      `insert into products
         (name, description, price, photo_file_name, ingredients)
         values (?, ?, ?, ?, ?)`
-        ).run(name, description, price, photoFileName, JSON.stringify(ingredients)).lastInsertRowid;
-    categories.forEach(category => {
-        db.prepare(
-            `insert into product_categories (product_id, category_name)
+    )
+    .run(
+      name,
+      description,
+      price,
+      photoFileName,
+      JSON.stringify(ingredients)
+    ).lastInsertRowid;
+  categories.forEach((category) => {
+    db.prepare(
+      `insert into product_categories (product_id, category_name)
             values (?, ?)`
-        ).run(id, category);
-    });
+    ).run(id, category);
+  });
 }
 
-createProduct("Chocolate Cake", "this is a chocolate cake", 1099, ["cakes", "chocolate", "birthday"], ["flour", "vanilla extract", "chocolate"]);
+createProduct(
+  "Chocolate Cake",
+  "this is a chocolate cake",
+  1099,
+  ["cakes", "chocolate", "birthday"],
+  ["flour", "vanilla extract", "chocolate"]
+);
 
-createProduct("Vanilla Cupcake", "a delightful vanilla cupcake with a hint of sweetness", 299, ["cupcakes", "vanilla", "casual"], ["flour", "vanilla extract", "sugar"]);
+createProduct(
+  "Vanilla Cupcake",
+  "a delightful vanilla cupcake with a hint of sweetness",
+  299,
+  ["cupcakes", "vanilla", "casual"],
+  ["flour", "vanilla extract", "sugar"]
+);
 
-createProduct("Caramel Cookie", "a scrumptious caramel cookie with a perfect balance of sweet and salty", 199, ["cookies", "caramel", "casual"], ["flour", "caramel", "sugar"]);
+createProduct(
+  "Caramel Cookie",
+  "a scrumptious caramel cookie with a perfect balance of sweet and salty",
+  199,
+  ["cookies", "caramel", "casual"],
+  ["flour", "caramel", "sugar"]
+);
 
-createProduct("Coconut Cake", "a tropical coconut cake that transports you to paradise", 1299, ["cakes", "coconut", "celebration"], ["flour", "coconut", "sugar"]);
+createProduct(
+  "Coconut Cake",
+  "a tropical coconut cake that transports you to paradise",
+  1299,
+  ["cakes", "coconut", "celebration"],
+  ["flour", "coconut", "sugar"]
+);
 
-createProduct("Chocolate Chip Cookie", "a classic chocolate chip cookie that's crunchy on the outside and chewy on the inside", 249, ["cookies", "chocolate", "casual"], ["flour", "chocolate chips", "sugar"]);
+createProduct(
+  "Chocolate Chip Cookie",
+  "a classic chocolate chip cookie that's crunchy on the outside and chewy on the inside",
+  249,
+  ["cookies", "chocolate", "casual"],
+  ["flour", "chocolate chips", "sugar"]
+);
 
-createProduct("Red Velvet Cake", "an elegant red velvet cake with a velvety cream cheese frosting", 1399, ["cakes", "celebration"], ["flour", "cocoa powder", "sugar", "red food coloring"]);
+createProduct(
+  "Red Velvet Cake",
+  "an elegant red velvet cake with a velvety cream cheese frosting",
+  1399,
+  ["cakes", "celebration"],
+  ["flour", "cocoa powder", "sugar", "red food coloring"]
+);
 
-createProduct("Caramel Cupcake", "a rich caramel cupcake topped with a luscious caramel drizzle", 349, ["cupcakes", "caramel", "celebration"], ["flour", "caramel", "sugar"]);
+createProduct(
+  "Caramel Cupcake",
+  "a rich caramel cupcake topped with a luscious caramel drizzle",
+  349,
+  ["cupcakes", "caramel", "celebration"],
+  ["flour", "caramel", "sugar"]
+);
 
-createProduct("Vanilla Raspberry Cake", "a light and refreshing vanilla cake with a tangy raspberry filling", 1199, ["cakes", "vanilla", "birthday"], ["flour", "vanilla extract", "sugar", "raspberries"]);
+createProduct(
+  "Vanilla Raspberry Cake",
+  "a light and refreshing vanilla cake with a tangy raspberry filling",
+  1199,
+  ["cakes", "vanilla", "birthday"],
+  ["flour", "vanilla extract", "sugar", "raspberries"]
+);
 
-createProduct("Coconut Macaroon", "a deliciously chewy coconut macaroon with a hint of almond", 179, ["cookies", "coconut", "casual"], ["shredded coconut", "almond extract", "sugar"]);
+createProduct(
+  "Coconut Macaroon",
+  "a deliciously chewy coconut macaroon with a hint of almond",
+  179,
+  ["cookies", "coconut", "casual"],
+  ["shredded coconut", "almond extract", "sugar"]
+);
 
-createProduct("Carrot Cake", "a moist carrot cake packed with fresh carrots, walnuts, and raisins", 1299, ["cakes", "birthday"], ["flour", "carrots", "sugar", "walnuts", "raisins"]);
+createProduct(
+  "Carrot Cake",
+  "a moist carrot cake packed with fresh carrots, walnuts, and raisins",
+  1299,
+  ["cakes", "birthday"],
+  ["flour", "carrots", "sugar", "walnuts", "raisins"]
+);
 
-createProduct("Lemon Cupcake", "a zesty lemon cupcake topped with a tangy lemon frosting", 299, ["cupcakes", "celebration"], ["flour", "lemon zest", "sugar"]);
+createProduct(
+  "Lemon Cupcake",
+  "a zesty lemon cupcake topped with a tangy lemon frosting",
+  299,
+  ["cupcakes", "celebration"],
+  ["flour", "lemon zest", "sugar"]
+);
