@@ -16,7 +16,7 @@ export default function CartItem({ product, quantity_in_cart, onCartItemUpdate }
     return <div className={styles.container}>
         {/*Photo of product*/}
         <img
-            src={`/product_photos/${product.photo_file_name}`}
+            src={`/${product.photo_file_name}`}
             className={styles.image}
         />
 
