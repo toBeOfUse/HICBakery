@@ -103,7 +103,9 @@
     background-color: #cbefe7;
 }
 
+/* 
+disabling this because it makes it harder to tell when an item is actually
+clicked
 .option:hover {
     background-color: #cbefe7;
-}
-
+} */
