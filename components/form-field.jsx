@@ -1,4 +1,4 @@
-export default function FormField({ label, placeholder, icon, style }) {
+export default function FormField({ label, placeholder, icon, style, hideLabel }) {
     // https://www.30secondsofcode.org/js/s/slugify/
     const id = label
         .toLowerCase()
@@ -7,9 +7,9 @@ export default function FormField({ label, placeholder, icon, style }) {
         .replace(/[\s_-]+/g, '-')
         .replace(/^-+|-+$/g, '');
     return <label style={{ width: "100%", ...style }}>
-        <span style={{ fontSize: "small", display: "block" }}>
+        {!hideLabel && <span style={{ fontSize: "small", display: "block" }}>
             {label}:
-        </span>
+        </span>}
         {icon ? <i class={`fa ${icon}`} /> : null}
         <input id={id} placeholder={placeholder} style={{ width: "100%" }} />
     </label>
