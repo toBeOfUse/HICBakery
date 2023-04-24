@@ -6,12 +6,24 @@ export default function SearchTestPage() {
 
     const doSearch = () => {
         // compose a URL from state variables:
-        fetch("/api/search?keyword=" + searchInput).then(
-            // get the response and store it:
-            res => res.json().then(
-                rows => setSearchResults(rows)
-            )
-        );
+        const categories = ['cakes', 'chocolate'];
+        let encodedCategories = "";
+        categories.forEach(category => {
+            encodedCategories += `&category_filter=${category}`;
+        });
+        fetch(`/api/search?keyword=${searchInput}` + encodedCategories)
+            .then(res => {
+                if (res.ok) {
+                    return res.json().then(rows => setSearchResults(rows));
+                } else {
+                    return res.json().then(error => {
+                        setSearchResults([]);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+            });
     };
 
     return <>

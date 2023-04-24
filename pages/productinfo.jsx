@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Header from "../components/Header";
+import Footer from "../components/footer";
 import db from "../components/db";
 
 
@@ -98,7 +99,7 @@ const ProductInfo = ({ product }) => {
 
                       <h5>Snickerdoodle</h5>
                       <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Snickerdoodle cookie topped with cinnamon. Served warm.</p>
-                      {/* 
+                      {/*
                       <h5>The Corner's Cosmic Brownie</h5>
                       <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Our verison of the Cosmic brownie. Served with hot fudge.</p>
 
@@ -111,16 +112,11 @@ const ProductInfo = ({ product }) => {
             </ul>
           </div>
         </div>
-
         <div className="w3-container w3-padding-64">
         </div>
-
-
       </div>
       {/* Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. */}
-      <footer className="w3-center bakery-blue w3-padding-48 w3-large">
-        {/* Footer end. */}
-      </footer>
+      <Footer />
     </>
   )
 }

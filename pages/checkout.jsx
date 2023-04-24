@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useCart } from "../components/CartProvider";
 import Header from "../components/Header";
+import Footer from "../components/footer";
 import styles from "../styles/checkout.module.css";
 import { formatPrice } from "../utilities/format.js";
 import FormField from "../components/form-field";
@@ -106,6 +107,7 @@ const Checkout = () => {
           </p>
         </form>
       </strong>
+      <Footer />
     </>
   )
 }

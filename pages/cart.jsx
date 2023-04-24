@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import Header from "../components/Header";
+import Footer from "../components/footer";
 import CartItem from "../components/cart-item";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart.module.css";
@@ -13,17 +14,16 @@ const Cart = () => {
       (acc, val) => acc + val.product.price * val.quantity_in_cart, 0
     ), [cartItems]);
 
+
   return (
     <>
       <Header collapsed={true} />
-
       <div className={styles.container}>
 
         {/*Row for cart compoent and price compoent */}
         <div>
           <p className={styles.header}> Your Cart</p>
           <div className={styles.primaryContentContainer}>
-
             {/*Cart containing row - left half of the page*/}
             <div>
 
@@ -48,9 +48,9 @@ const Cart = () => {
 
         {/* End page content */}
       </div>
+      <Footer />
     </>
   )
-
 }
 
 export default Cart;
