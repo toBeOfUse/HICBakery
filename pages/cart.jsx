@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import CartItem from "../components/cart-item";
@@ -9,12 +9,10 @@ import { useCart } from "../components/CartProvider";
 
 const Cart = () => {
   const [cartItems, updateCart] = useCart();
-  const [totalPrice, setTotalPrice] = useState(0);
-  useEffect(() => {
-    setTotalPrice(cartItems.reduce(
+  const totalPrice = useMemo(() =>
+    cartItems.reduce(
       (acc, val) => acc + val.product.price * val.quantity_in_cart, 0
-    ));
-  }, [cartItems]);
+    ), [cartItems]);
 
 
   return (

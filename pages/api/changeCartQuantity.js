@@ -4,7 +4,6 @@ export default function handler(req, res) {
   const body = JSON.parse(req.body);
   const product_id = body.product_id;
   const quantity = body.quantity;
-  console.log(body);
   if (quantity > 0) {
     db.prepare("update carts set quantity=? where product_id=?").run(
       quantity,
