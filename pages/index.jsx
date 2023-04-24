@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Fragment } from "react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/footer.jsx";
 import styles from "../styles/Home.module.css";
@@ -19,7 +20,6 @@ export function getServerSideProps(context) {
       left join products on product_categories.product_id=products.id
       where categories.featured=true
       order by categories.name;`).all();
-  console.log(featuredProducts);
   const groupedProducts = {};
   for (const product of featuredProducts) {
     if (!(product.category_name in groupedProducts)) {
@@ -54,15 +54,14 @@ export default function Home({ categories }) {
               <h3><Link href={`/search?category_filter=${c[0].category_name}`}>{c[0].category_name}</Link></h3>
               <p>{c[0].category_description}</p>
               {c.map(
-                (p, i) => <>
+                (p, i) => <Fragment key={p.id} >
                   <a
-                    key={p.id}
                     href={`/productInfo?product=${p.id}`}
                     style={{ textDecoration: "underline" }}>
                     {p.name}
                   </a>
                   {i != c.length - 1 && <span> | </span>}
-                </>)
+                </Fragment>)
               }
             </div>
           </div>
