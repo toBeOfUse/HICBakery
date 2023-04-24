@@ -8,7 +8,9 @@ export default function handler(req, res) {
     // so if you did http://localhost:3000/api/search?keyword=apple&category_filter=cookies&category_filter=birthday)
     // you would get req.query.keyword == "apple" && req.query.category_filters == ['cookies', 'birthday']
     const searchForName = req.query.keyword;
-    const categoryFiltersArray = req.query.category_filter;
+    const categoryFiltersArray = Array.isArray(req.query.category_filter)
+        ? req.query.category_filter
+        : req.query.category_filter ? [req.query.category_filter] : [];
     const categoryFilters = categoryFiltersArray && categoryFiltersArray.length
         ? `(${categoryFiltersArray.map(category => `'${category}'`).join(', ')})`
         : '';

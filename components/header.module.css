@@ -89,12 +89,14 @@
     position: relative;
 }
 
-.inputContainer::before {
-    content: '🔎';
+#SearchButton {
+    background: none;
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1em;tion: a;
+    border: none;
 }
+

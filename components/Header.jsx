@@ -21,7 +21,7 @@ export default function Header(props) {
             <Link {...linkStyle} href="/about">About</Link>
             <div className={styles.inputContainer}>
                 <input value={props.searchInput} onChange={(e)=> props.setSearchInput(e.target.value)} type="text" placeholder="Search our products..." />
-                <button onClick={props.doSearch}>Search</button>
+                <button id={styles.SearchButton} onClick={props.doSearch}>🔎</button>
             </div>
             <Link {...linkStyle} href="/cart">Your Cart{cartSize > 0 ? ` (${cartSize})` : ''}</Link>
         </div>
