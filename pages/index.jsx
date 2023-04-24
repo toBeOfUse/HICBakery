@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Header from "../components/Header.jsx";
 import styles from "../styles/Home.module.css";
 
@@ -21,7 +22,10 @@ export function getServerSideProps(context) {
 }
 
 export default function Home({ categories }) {
-  return (
+  return <>
+    <Head>
+      <title>Cupcake Corner Bakery</title>
+    </Head>
     <div className={styles.container}>
       <Header collapsed={false} />
       <div className={styles.categoriesContainer}>
@@ -40,5 +44,5 @@ export default function Home({ categories }) {
         )}
       </div>
     </div>
-  );
+  </>;
 }

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Header from "../components/Header"
 import Footer from "../components/footer"
 
@@ -5,7 +6,9 @@ const AllergenInfo = () => {
 
   return (
     <>
-
+      <Head>
+        <title>Allergen Info</title>
+      </Head>
       <Header collapsed={true} />
       <>
         {/* Add a background color and large text to the whole page */}
@@ -155,7 +158,7 @@ const AllergenInfo = () => {
         </div>
 
       </>
-      <Footer/>
+      <Footer />
     </>
   )
 }

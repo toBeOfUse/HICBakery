@@ -1,3 +1,4 @@
+import Head from "next/head";
 import styles from "../styles/search.module.css"
 import FilterBox from "../components/filter-box.jsx"
 import Header from "../components/Header.jsx"
@@ -69,6 +70,9 @@ export default function Search() {
 
     return (
         <>
+            <Head>
+                <title>{searchInput ? searchInput + " - " : ""}Search Results</title>
+            </Head>
             <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
             <main id={styles.SearchContainer}>
                 <FilterBox currentSearch={currentSearch} addFilter={addFilter} />

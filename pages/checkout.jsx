@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useMemo } from "react";
 import { useCart } from "../components/CartProvider";
 import Header from "../components/Header";
@@ -15,6 +16,9 @@ const Checkout = () => {
 
   return (
     <>
+      <Head>
+        <title>Checkout</title>
+      </Head>
       <Header collapsed={true} />
 
       <div className={styles.pageContainer}>

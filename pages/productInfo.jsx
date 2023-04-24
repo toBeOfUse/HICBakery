@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import Header from "../components/Header";
@@ -30,6 +31,9 @@ const ProductInfo = ({ product }) => {
 
   return (
     <>
+      <Head>
+        <title>{product.name}</title>
+      </Head>
       {/* React Header (sit on top) */}
       <Header collapsed={true} />
 

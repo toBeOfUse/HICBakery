@@ -1,8 +1,12 @@
+import Head from "next/head";
 import Header from "../components/Header";
 import styles from "../styles/about.module.css";
 
 export default function AboutPage() {
     return <>
+        <Head>
+            <title>About Us</title>
+        </Head>
         <Header collapsed={true} />
         <div className={styles.container}>
             <div style={{ width: "100%" }}>

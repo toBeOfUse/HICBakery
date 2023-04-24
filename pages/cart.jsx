@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { useMemo } from "react";
 import Header from "../components/Header";
 import Footer from "../components/footer";
@@ -17,6 +18,9 @@ const Cart = () => {
 
   return (
     <>
+      <Head>
+        <title>Your Cart</title>
+      </Head>
       <Header collapsed={true} />
       <div className={styles.container}>
 
