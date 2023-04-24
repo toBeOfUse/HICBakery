@@ -80,7 +80,7 @@ const ProductInfo = ({ product }) => {
                       onChange={e => setCartQuantity(parseInt(e.target.value))}
                       min="1" max="5"></input>
                     <button onClick={addToCart} className="w3-button"> + Add to Cart </button>
-                    {inCart && <span>({inCart} in cart already)</span>}
+                    {inCart && <span>({inCart} in cart now)</span>}
                   </div>
                 </div>
               </li>
