@@ -1,14 +1,14 @@
 import styles from "../styles/search.module.css"
 import CollapsibleList from "./collapsible-list";
 
-export default function FilterBox({addFilter}) {
+export default function FilterBox({currentSearch, addFilter}) {
     const typeItems = ['Cupcakes', 'Cookies', 'Cakes'];
     const flavorItems = ['Chocolate', 'Vanilla', 'Caramel', 'Coconut'];
     const occasionItems = ['Birthday', 'Celebration', 'Casual'];
 
     return (
         <div id={styles.FilterContainer}>
-            <h1 id={styles.ResultsDisplay}>Results for: Vanilla</h1>
+            <h1 id={styles.ResultsDisplay}>Results for: <span>{currentSearch}</span></h1>
             <ul id={styles.Categories}>
                 <CollapsibleList clickAction={addFilter} header="Type" items={typeItems} />
                 <CollapsibleList clickAction={addFilter} header="Flavor" items={flavorItems} />

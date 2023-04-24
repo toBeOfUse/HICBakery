@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
+import Footer from "../components/footer";
 import CartItem from "../components/cart-item";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart.module.css";
@@ -49,6 +50,7 @@ const Cart = () => {
 
         {/* End page content */}
       </div>
+      <Footer />
     </>
   )
 }

@@ -1,6 +1,6 @@
 #FooterContainer {
     overflow: hidden;
-    background: gray;
+    background-color: #cbefe7;
     display: flex;
     justify-content: space-between;
 }

@@ -17,8 +17,9 @@
 .searchResult {
     min-height: 20rem;
     min-width: 10rem;
-    width: 70%;
+    width: 100%;
     margin: auto;
+    padding: 20px;
 }
 
 .searchResult > h1 {
@@ -30,7 +31,12 @@
     margin: auto;
 }
 
+.productTitle {
+    font-size: 1.4rem;
+}
+
 .productDesc {
+    text-align: center;
     margin-bottom: 3%;
 }
 
@@ -40,13 +46,17 @@
 
 #FilterContainer {
     margin: 10px;
-    width: max-content;
+    width: 200px;
+
     user-select: none;
 }
 
 #ResultsDisplay {
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1.2rem;
+}
+
+#ResultsDisplay > span {
+    font-weight: bold;
 }
 
 #Categories {
@@ -90,10 +100,10 @@
 }
 
 .option.selected {
-    background-color: rgba(0, 0, 0, .2);
+    background-color: #cbefe7;
 }
 
 .option:hover {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: #cbefe7;
 }
 

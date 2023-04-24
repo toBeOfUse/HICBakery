@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Header from "../components/Header";
+import Footer from "../components/footer";
 import db from "../components/db";
 
 
@@ -115,9 +116,7 @@ const ProductInfo = ({ product }) => {
         </div>
       </div>
       {/* Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. */}
-      <footer className="w3-center bakery-blue w3-padding-48 w3-large">
-        {/* Footer end. */}
-      </footer>
+      <Footer />
     </>
   )
 }

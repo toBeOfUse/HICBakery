@@ -14,15 +14,23 @@ export default function handler(req, res) {
     const categoryFilters = categoryFiltersArray && categoryFiltersArray.length
         ? `(${categoryFiltersArray.map(category => `'${category}'`).join(', ')})`
         : '';
+
+   let query = `SELECT DISTINCT id, name, description, price, photo_file_name, ingredients
+                 FROM products
+                 INNER JOIN product_categories ON products.id = product_categories.product_id`;
+
     if (searchForName) {
-        let query = `SELECT distinct id, name, description, price, photo_file_name, ingredients
-                     FROM products natural join product_categories WHERE name LIKE ?`;
-        if (categoryFilters) {
-            query += ` AND (category_name in ${categoryFilters})`;
-        }
-        const results = db.prepare(query).all("%" + searchForName + "%");
-        res.json(results);
-    } else {
-        res.status(404).send("keyword missing");
+        query += ` where name LIKE ?`;
     }
+
+    if (categoryFilters) {
+        query += ` WHERE category_name IN ${categoryFilters}`;
+    }
+
+    console.log(query);
+
+    const results = searchForName
+        ? db.prepare(query).all("%" + searchForName + "%")
+        : db.prepare(query).all();
+    res.json(results);
 }

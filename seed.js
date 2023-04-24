@@ -114,8 +114,23 @@ function createProduct(name="", description="", price=0, categories=[], ingredie
 }
 
 createProduct("Chocolate Cake", "this is a chocolate cake", 1099, ["cakes", "chocolate", "birthday"], ["flour", "vanilla extract", "chocolate"]);
-createProduct("Chocolate Cake", "this is a chocolate cake", 1099, ["cakes", "chocolate", "birthday"], ["flour", "vanilla extract", "chocolate"]);
-createProduct("Chocolate Cake", "this is a chocolate cake", 1099, ["cakes", "chocolate", "birthday"], ["flour", "vanilla extract", "chocolate"]);
-createProduct("Chocolate Cake", "this is a chocolate cake", 1099, ["cakes", "chocolate", "birthday"], ["flour", "vanilla extract", "chocolate"]);
 
+createProduct("Vanilla Cupcake", "a delightful vanilla cupcake with a hint of sweetness", 299, ["cupcakes", "vanilla", "casual"], ["flour", "vanilla extract", "sugar"]);
 
+createProduct("Caramel Cookie", "a scrumptious caramel cookie with a perfect balance of sweet and salty", 199, ["cookies", "caramel", "casual"], ["flour", "caramel", "sugar"]);
+
+createProduct("Coconut Cake", "a tropical coconut cake that transports you to paradise", 1299, ["cakes", "coconut", "celebration"], ["flour", "coconut", "sugar"]);
+
+createProduct("Chocolate Chip Cookie", "a classic chocolate chip cookie that's crunchy on the outside and chewy on the inside", 249, ["cookies", "chocolate", "casual"], ["flour", "chocolate chips", "sugar"]);
+
+createProduct("Red Velvet Cake", "an elegant red velvet cake with a velvety cream cheese frosting", 1399, ["cakes", "celebration"], ["flour", "cocoa powder", "sugar", "red food coloring"]);
+
+createProduct("Caramel Cupcake", "a rich caramel cupcake topped with a luscious caramel drizzle", 349, ["cupcakes", "caramel", "celebration"], ["flour", "caramel", "sugar"]);
+
+createProduct("Vanilla Raspberry Cake", "a light and refreshing vanilla cake with a tangy raspberry filling", 1199, ["cakes", "vanilla", "birthday"], ["flour", "vanilla extract", "sugar", "raspberries"]);
+
+createProduct("Coconut Macaroon", "a deliciously chewy coconut macaroon with a hint of almond", 179, ["cookies", "coconut", "casual"], ["shredded coconut", "almond extract", "sugar"]);
+
+createProduct("Carrot Cake", "a moist carrot cake packed with fresh carrots, walnuts, and raisins", 1299, ["cakes", "birthday"], ["flour", "carrots", "sugar", "walnuts", "raisins"]);
+
+createProduct("Lemon Cupcake", "a zesty lemon cupcake topped with a tangy lemon frosting", 299, ["cupcakes", "celebration"], ["flour", "lemon zest", "sugar"]);

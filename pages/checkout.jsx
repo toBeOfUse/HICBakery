@@ -1,4 +1,5 @@
 import Header from "../components/Header"
+import Footer from "../components/footer";
 
 const Checkout = () => {
   return (
@@ -164,6 +165,7 @@ const Checkout = () => {
           </form>
         </strong>
       </div>
+      <Footer />
     </>
   )
 }

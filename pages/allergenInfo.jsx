@@ -1,6 +1,5 @@
 import Header from "../components/Header"
-
-
+import Footer from "../components/footer"
 
 const AllergenInfo = () => {
 
@@ -156,6 +155,7 @@ const AllergenInfo = () => {
         </div>
 
       </>
+      <Footer/>
     </>
   )
 }
