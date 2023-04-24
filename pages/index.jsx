@@ -53,6 +53,17 @@ export default function Home({ categories }) {
             <div className={styles.categoryTextContainer}>
               <h3><Link href={`/search?category_filter=${c[0].category_name}`}>{c[0].category_name}</Link></h3>
               <p>{c[0].category_description}</p>
+              {c.map(
+                (p, i) => <>
+                  <a
+                    key={p.id}
+                    href={`/productInfo?product=${p.id}`}
+                    style={{ textDecoration: "underline" }}>
+                    {p.name}
+                  </a>
+                  {i != c.length - 1 && <span> | </span>}
+                </>)
+              }
             </div>
           </div>
         )}
