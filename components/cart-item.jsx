@@ -5,10 +5,13 @@ import { useState } from "react";
 
 export default function CartItem({ product, quantity_in_cart, onCartItemUpdate }) {
     const [quantity, setQuantity] = useState(quantity_in_cart);
-    const updateQuantity = () => {
+    const updateQuantity = (newQuantity) => {
         fetch("/api/changeCartQuantity", {
             method: "PUT",
-            body: JSON.stringify({ product_id: product.id, quantity })
+            body: JSON.stringify({
+                product_id: product.id,
+                quantity: newQuantity ?? quantity
+            })
         })
             .then(() => { onCartItemUpdate() }
             );
@@ -18,6 +21,7 @@ export default function CartItem({ product, quantity_in_cart, onCartItemUpdate }
         <img
             src={`/${product.photo_file_name}`}
             className={styles.image}
+            alt={`Image of ${product.name}`}
         />
 
         {/*Product Description*/}
@@ -29,15 +33,16 @@ export default function CartItem({ product, quantity_in_cart, onCartItemUpdate }
             </h3>
 
             <p className={styles.productDescription}>{product.description}</p>
-            {/* <div> Delivery Status: In stock</div> */}
+
             <div className={styles.smallProductText}>
                 <span>Item price: ${formatPrice(product.price)}</span>
                 <span> Quantity in cart:
                     <input min="0" max="5" type="number" value={quantity}
                         onChange={e => setQuantity(parseInt(e.target.value))} />
-                    <button onClick={updateQuantity}>Update</button>
+                    <button onClick={() => updateQuantity()}>Update</button>
+                    <button onClick={() => updateQuantity(0)}>Remove</button>
                 </span>
             </div>
         </div>
-    </div >
+    </div>
 }
