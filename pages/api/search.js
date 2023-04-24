@@ -24,7 +24,10 @@ export default function handler(req, res) {
     }
 
     if (categoryFilters) {
-        query += ` WHERE category_name IN ${categoryFilters}`;
+        // if we already used WHERE once above, need to use AND
+        query += ` ${
+        searchForName ? "AND" : "WHERE"
+        } category_name IN ${categoryFilters}`;
     }
 
     console.log(query);
