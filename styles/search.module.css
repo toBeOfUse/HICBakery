@@ -29,6 +29,7 @@
 .productImage {
     display: block;
     margin: auto;
+    object-fit: contain;
 }
 
 .productTitle {
