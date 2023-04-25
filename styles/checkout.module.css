@@ -86,7 +86,11 @@
 }
 
 .validationWarning {
+  font-size: small;
+  line-height: 1.2;
+  display: inline-block;
   visibility: hidden;
+  margin-top: 2px;
 }
 
 form.validation input:invalid+span.validationWarning {
