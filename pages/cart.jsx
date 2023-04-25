@@ -7,6 +7,7 @@ import CartItem from "../components/cart-item";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart.module.css";
 import { useCart } from "../components/cart-provider";
+import Button from "../components/button";
 
 const Cart = () => {
   const [cartItems, _] = useCart();
@@ -44,9 +45,11 @@ const Cart = () => {
             <div className={"w3-card-2 w3-center w3-round-medium " + styles.priceContainer}>
               <p> Total Price: ${formatPrice(totalPrice)}</p>
               <div>
-                <Link href={totalPrice ? '/checkout' : ''} className="bakery-blue"
-                  style={{ padding: 12, backgroundColor: totalPrice ? "" : "lightgray" }}>
-                  Proceed to Checkout
+                <Link href={totalPrice ? '/checkout' : ''}>
+                  <Button
+                    style={{ padding: 12, backgroundColor: totalPrice ? "" : "lightgray" }}>
+                    Proceed to Checkout
+                  </Button>
                 </Link>
               </div>
             </div>

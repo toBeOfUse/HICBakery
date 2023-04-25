@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 import styles from "../styles/checkout.module.css";
 import { formatPrice } from "../utilities/format.js";
 import FormField from "../components/form-field";
+import Button from "../components/button";
 
 const Checkout = () => {
   const [cart, updateCart] = useCart();
@@ -128,7 +129,7 @@ const Checkout = () => {
                 <tr><td>Your total:</td><td /><td>${formatPrice(totalPrice)}</td></tr>
               </tbody>
             </table>
-            <button onClick={submit}>Complete Purchase</button>
+            <Button onClick={submit}>Complete Purchase</Button>
           </div>
         </div>
 

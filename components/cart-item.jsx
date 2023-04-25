@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "../components/button.jsx";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart-item.module.css";
 import { useState } from "react";
@@ -39,8 +40,8 @@ export default function CartItem({ product, quantity_in_cart }) {
                 <span> Quantity in cart:
                     <input min="0" max="5" type="number" value={quantity}
                         onChange={e => setQuantity(parseInt(e.target.value))} />
-                    <button onClick={() => updateQuantity()}>Update</button>
-                    <button onClick={() => updateQuantity(0)}>Remove</button>
+                    <Button onClick={() => updateQuantity()}>Update</Button>
+                    <Button onClick={() => updateQuantity(0)}>Remove</Button>
                 </span>
             </div>
         </div>

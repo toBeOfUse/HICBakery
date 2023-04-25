@@ -8,6 +8,7 @@ import { useCart } from "../components/cart-provider";
 import { useRouter } from "next/router";
 import { batchProductsByCategory, categoryJoinQuery } from "../utilities/categories";
 import CategorySuggester from "../components/category-suggester";
+import Button from "../components/button";
 
 
 export async function getServerSideProps(context) {
@@ -57,10 +58,11 @@ const ProductInfo = ({ product, suggestions }) => {
       {fromSearch &&
         <div className="w3-container w3-padding-16 w3-margin-right w3-border-left">
           <div>
-            <button className="w3-btn w3-transparent w3-border-left w3-hover-aqua"
+            <Button
+              style={{ fontSize: "large" }}
               onClick={() => router.back()}>
-              <h4> ← Return to Search Results </h4>
-            </button>
+              ← Return to Search Results
+            </Button>
           </div>
         </div>
       }
@@ -70,7 +72,8 @@ const ProductInfo = ({ product, suggestions }) => {
 
 
         {/* Contains product photo and info */}
-        <div className="w3-row w3-content ">
+        <div className="w3-row w3-content"
+          style={{ border: "1px solid black", boxShadow: "2px 8px 3px lightgray", padding: 30, borderRadius: 10, width: 800, display: "flex", alignItems: "center" }}>
           {/* Product Photo */}
           <div className="w3-quarter w3-container">
             {/* Contains image compment and favorites recommendation in one large column*/}
@@ -95,7 +98,7 @@ const ProductInfo = ({ product, suggestions }) => {
                     <input type="number" value={cartQuantity} style={{ width: 50 }}
                       onChange={e => setCartQuantity(parseInt(e.target.value))}
                       min="1" max="5"></input>
-                    <button onClick={addToCart} className="w3-button"> + Add to Cart </button>
+                    <Button onClick={addToCart} style={{ marginLeft: "10px" }}> + Add to Cart </Button>
                     {inCart && <span>({inCart} in cart now)</span>}
                   </div>
                 </div>
@@ -103,12 +106,12 @@ const ProductInfo = ({ product, suggestions }) => {
 
               {/* Container containing ingredients and allergens button*/}
               <li>
-                <div className="w3-row w3-container w3-stretch">
+                <div className="w3-row w3-container">
                   <div className="w3-quarter w3-large">
-                    <button className="w3-btn w3-transparent w3-hover-aqua">Ingredients</button>
+                    <Button>Ingredients</Button>
                   </div>
-                  <div className="w3-threequarter w3-large">
-                    <button className="w3-btn w3-transparent w3-hover-aqua">Allergens</button>
+                  <div className="w3-large">
+                    <Button>Allergens</Button>
                   </div>
                 </div>
               </li>
