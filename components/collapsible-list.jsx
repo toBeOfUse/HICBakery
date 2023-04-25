@@ -4,8 +4,6 @@ import { useFilters } from "./filter-context.js";
 
 export default function CollapsibleList({ header, items }) {
     const [selectedOptions, editFilters] = useFilters();
-    console.log("so", selectedOptions);
-    console.log("i", items);
     const [collapsed, setCollapsed] = useState(true);
     useEffect(() => {
         if (collapsed && selectedOptions) {

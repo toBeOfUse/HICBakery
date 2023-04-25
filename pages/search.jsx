@@ -68,10 +68,6 @@ export default function Search() {
         }
     }, [router.query.keyword, activeFilters]);
 
-    useEffect(() => {
-        console.log('Active filters update!', activeFilters);
-    }, [activeFilters]);
-
     function editFilters(name, adding) {
         setActiveFilters(prevState => {
             let updatedFilters = [...prevState];
