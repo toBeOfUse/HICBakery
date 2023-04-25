@@ -6,16 +6,25 @@ import Footer from "../components/footer";
 import db from "../components/db";
 import { useCart } from "../components/cart-provider";
 import { useRouter } from "next/router";
+import { batchProductsByCategory, categoryJoinQuery } from "../utilities/categories";
+import CategorySuggester from "../components/category-suggester";
 
 
 export async function getServerSideProps(context) {
   const productID = context.query.product ?? 1;
   const product = db.prepare("select * from products where id=?").get(productID);
-  return { props: { product } };
+  const categories = db.prepare(
+    "select category_name from product_categories where product_id=?"
+  ).all(productID);
+  const relevantProducts = db.prepare(`
+    ${categoryJoinQuery}
+      where categories.name in (${categories.map(c => `'${c.category_name}'`).join(",")})
+  `).all();
+  return { props: { product, suggestions: batchProductsByCategory(relevantProducts) } };
 }
 
 
-const ProductInfo = ({ product }) => {
+const ProductInfo = ({ product, suggestions }) => {
   const [cart, updateCart] = useCart();
   const [cartQuantity, setCartQuantity] = useState(1);
   const inCart = useMemo(
@@ -69,11 +78,6 @@ const ProductInfo = ({ product }) => {
               src={`/${product.photo_file_name}`}
               style={{ width: "100%", maxWidth: 1000 }}
             />
-            <div className="w3-padding-64"></div>
-            <div className="w3-padding-64"></div>
-            <div className="w3-padding-64"></div>
-            <div className="w3-padding-16"></div>
-            <span className="w3-cell w3-wide bakery-blue w3-xlarge"> Not what you wanted? Try our favorites!</span>
           </div>
           {/* Product Infomation*/}
           <div className="w3-threequarter w3-container">
@@ -108,38 +112,10 @@ const ProductInfo = ({ product }) => {
                   </div>
                 </div>
               </li>
-              <li>
-                <div className="w3-padding-64"></div>
-                <div className="w3-padding-64"></div>
-                <div>
-                  <div className="w3-container w3-card-2" id="menu">
-                    <div className="w3-content">
-                      <h5 className="w3-center"><span className="w3-tag bakery-blue w3-wide"> Our Favorites</span></h5>
-
-                      <div id="Eat" className="w3-container w3-card-2 menu w3-padding-48"></div>
-                      <h5>Banana Chocolate Chip Muffin</h5>
-                      <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> A classic way to start breakfast.</p>
-
-                      <h5> Chocolate Overload Chocolate Cake</h5>
-                      <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> A three-layer cake featuring chocolate cake and chocolate frosting.</p>
-
-                      <h5>Snickerdoodle</h5>
-                      <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Snickerdoodle cookie topped with cinnamon. Served warm.</p>
-                      {/*
-                      <h5>The Corner's Cosmic Brownie</h5>
-                      <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Our verison of the Cosmic brownie. Served with hot fudge.</p>
-
-                      <h5>Reese's Cupcake</h5>
-                      <p className="w3-text-grey w3-medium w3-border-bottom w3-border-aqua"> Chocolate and peanut butter cupcake topped with Reese's pieces. </p> */}
-                    </div>
-                  </div>
-                </div>
-              </li>
             </ul>
           </div>
         </div>
-        <div className="w3-container w3-padding-64">
-        </div>
+        <CategorySuggester suggestions={suggestions} />
       </div>
       {/* Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. */}
       <Footer />

@@ -7,6 +7,7 @@ import Footer from "../components/footer.jsx";
 import styles from "../styles/Home.module.css";
 import db from "../components/db.js";
 import Link from "next/link.js";
+import { batchProductsByCategory, categoryJoinQuery } from "../utilities/categories.js";
 
 const nearbyLeftSwoosh = keyframes`
 from {
@@ -26,24 +27,13 @@ export function getServerSideProps(context) {
   // page is being rendered (which will happen initially on the server, and then
   // later again in the browser if the page needs to be updated, usually due to
   // something the user does)
-  // const test_data_row = db.prepare("select message from test_data").get();
+
   const featuredProducts = db.prepare(`
-    select categories.description as category_description, * from categories
-      left join product_categories on categories.name=product_categories.category_name
-      left join products on product_categories.product_id=products.id
+    ${categoryJoinQuery}
       where categories.featured=true
       order by random();`).all();
-  const groupedProducts = {};
-  for (const product of featuredProducts) {
-    if (!(product.category_name in groupedProducts)) {
-      groupedProducts[product.category_name] = [product];
-    } else {
-      groupedProducts[product.category_name].push(product);
-    }
-  }
-
   return {
-    props: { categories: Object.values(groupedProducts) },
+    props: { categories: batchProductsByCategory(featuredProducts) },
   };
 }
 
