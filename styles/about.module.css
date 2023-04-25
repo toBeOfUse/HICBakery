@@ -2,9 +2,18 @@
     padding-top: 20px;
     display: flex;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 20px auto;
+    gap: 20px;
+    align-items: center;
+}
+
+.container figure {
+    text-align: center;
+    width: 400px;
+    flex-shrink: 0;
 }
 
 .container img {
-    max-width: 550px;
+    width: 100%;
+    height: auto;
 }
