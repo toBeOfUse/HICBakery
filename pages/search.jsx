@@ -85,14 +85,14 @@ export default function Search() {
         });
     }
 
-    const fadeLengthMs = 500;
+    const fadeLengthMS = 500;
 
     const fadeIn = (el) => {
         el.style.transition = "";
         el.style.opacity = 0;
         setTimeout(() => {
-            el.style.transition = `opacity ${fadeLengthMs}ms`;
-            el.style.opacity = 1
+            el.style.transition = `opacity ${fadeLengthMS}ms`;
+            el.style.opacity = 1;
         }, 1);
     }
 
@@ -100,16 +100,16 @@ export default function Search() {
         el.style.transition = "";
         el.style.opacity = 1;
         setTimeout(() => {
-            el.style.transition = `opacity ${fadeLengthMs}ms`;
-            el.style.opacity = 0
+            el.style.transition = `opacity ${fadeLengthMS}ms`;
+            el.style.opacity = 0;
         }, 1);
-        setTimeout(done, fadeLengthMs);
+        setTimeout(done, fadeLengthMS);
     }
 
     return (
         <>
             <Head>
-                <title>{currentSearch ? currentSearch + " - " : ""}Search Results</title>
+                <title>{currentSearch ? currentSearch + " - Search Results" : "Search Results"}</title>
             </Head>
             <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
             <main id={styles.SearchContainer}>
