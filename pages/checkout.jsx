@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import { useCart } from "../components/cart-provider";
 import Header from "../components/header";
@@ -15,14 +16,21 @@ const Checkout = () => {
     ), [cart]);
 
   const [showValidation, setShowValidation] = useState(false);
+  const [showThanks, setShowThanks] = useState(false);
+  const [thanksImage, setThanksImage] = useState(undefined);
 
   const formRef = useRef(null);
 
   const submit = () => {
-    if (formRef.current) {
+    if (formRef.current && cart.length) {
       const valid = formRef.current.reportValidity();
       if (!valid) {
         setShowValidation(true);
+      } else {
+        setShowValidation(false);
+        setShowThanks(true);
+        setThanksImage(cart[0].product.photo_file_name);
+        fetch("/api/emptyCart", { method: "PUT" }).then(updateCart);
       }
     }
   }
@@ -33,6 +41,14 @@ const Checkout = () => {
         <title>Checkout</title>
       </Head>
       <Header collapsed={true} />
+      {showThanks && <div className={styles.modalBG}>
+        <div className={styles.modal}>
+          <img height="200" src={"/" + thanksImage} />
+          Thanks for your purchase! We appreciate you.
+          <br />
+          <Link href="/">Return to home</Link>
+        </div>
+      </div>}
 
       <div className={styles.pageContainer}>
 

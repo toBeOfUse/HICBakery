@@ -97,3 +97,33 @@ form.validation input:invalid+span.validationWarning {
   visibility: visible;
   color: red;
 }
+
+.modalBG {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff8;
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid black;
+  font-size: large;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal a {
+  text-decoration: underline;
+}
