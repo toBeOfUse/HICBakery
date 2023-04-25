@@ -13,7 +13,7 @@ export default function Header(props) {
     const [searchInput, setSearchInput] = useState(props.searchInput ?? "");
 
     useEffect(() => {
-        setSearchInput(props.searchInput);
+        setSearchInput(props.searchInput ?? "");
     }, [props.searchInput])
 
     function handleKeyDown(e) {
