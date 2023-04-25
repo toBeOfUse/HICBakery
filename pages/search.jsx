@@ -15,6 +15,9 @@ export default function Search() {
     const [currentSearch, setCurrentSearch] = useState("");
 
     function doSearch(searchInput) {
+        if (!router.isReady) {
+            return;
+        }
         setCurrentSearch(searchInput);
         const params = new URLSearchParams();
         if (searchInput) {
@@ -59,7 +62,7 @@ export default function Search() {
             // component is re-rendered), so the new search input must be passed
             // to doSearch directly
             doSearch(router.query.keyword);
-        } else if (router.isReady) {
+        } else {
             doSearch("");
         }
     }, [router.query.keyword, activeFilters]);
