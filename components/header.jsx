@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useCart } from "./cart-provider";
 import styles from "./header.module.css";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Link from "next/link";
 
@@ -10,7 +10,11 @@ export default function Header(props) {
     const router = useRouter();
     const [cart, _] = useCart();
     const cartSize = useMemo(() => cart.reduce((acc, val) => acc + val.quantity_in_cart, 0), [cart]);
-    const [searchInput, setSearchInput] = useState("");
+    const [searchInput, setSearchInput] = useState(props.searchInput ?? "");
+
+    useEffect(() => {
+        setSearchInput(props.searchInput);
+    }, [props.searchInput])
 
     function handleKeyDown(e) {
         if (e.key == 'Enter')
