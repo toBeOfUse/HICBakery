@@ -5,7 +5,8 @@ import Header from "../components/header.jsx"
 import ProductSearchResultItem from "../components/product-search-result-item.jsx"
 import Footer from "../components/footer"
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
+import { Flipper, Flipped } from 'react-flip-toolkit';
 
 export default function Search() {
     const [searchInput, setSearchInput] = useState("");
@@ -58,7 +59,7 @@ export default function Search() {
             // component is re-rendered), so the new search input must be passed
             // to doSearch directly
             doSearch(router.query.keyword);
-        } else {
+        } else if (router.isReady) {
             doSearch("");
         }
     }, [router.query.keyword, activeFilters]);
@@ -84,6 +85,27 @@ export default function Search() {
         });
     }
 
+    const fadeLengthMs = 500;
+
+    const fadeIn = (el) => {
+        el.style.transition = "";
+        el.style.opacity = 0;
+        setTimeout(() => {
+            el.style.transition = `opacity ${fadeLengthMs}ms`;
+            el.style.opacity = 1
+        }, 1);
+    }
+
+    const fadeOut = (el, i, done) => {
+        el.style.transition = "";
+        el.style.opacity = 1;
+        setTimeout(() => {
+            el.style.transition = `opacity ${fadeLengthMs}ms`;
+            el.style.opacity = 0
+        }, 1);
+        setTimeout(done, fadeLengthMs);
+    }
+
     return (
         <>
             <Head>
@@ -92,11 +114,16 @@ export default function Search() {
             <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
             <main id={styles.SearchContainer}>
                 <FilterBox currentSearch={currentSearch} addFilter={addFilter} />
-                <section id={styles.SearchResultContainer}>
-                    {searchResults.map((product, index) =>
-                        <ProductSearchResultItem key={index} product={product} />
+                {/* <section id={styles.SearchResultContainer}> */}
+                <Flipper flipKey={router.isReady ? searchResults.map(s => s.id).join(',') : ""}
+                    element="section" className={styles.searchResultContainer}>
+                    {searchResults.map((product) =>
+                        <Flipped flipId={product.id} key={product.id} onAppear={fadeIn} onExit={fadeOut}>
+                            <ProductSearchResultItem product={product} />
+                        </Flipped>
                     )}
-                </section>
+                </Flipper>
+                {/* </section> */}
             </main>
             <Footer />
         </>

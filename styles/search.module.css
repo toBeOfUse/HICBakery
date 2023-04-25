@@ -3,7 +3,7 @@
     margin-bottom: 20px;
 }
 
-#SearchResultContainer {
+.searchResultContainer {
     align-content: start;
     margin: auto;
     margin-top: 2.6%;
