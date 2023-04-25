@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
-import Header from "../components/Header";
+import Header from "../components/header";
 import Footer from "../components/footer";
 import db from "../components/db";
-import { useCart } from "../components/CartProvider";
+import { useCart } from "../components/cart-provider";
 import { useRouter } from "next/router";
 
 

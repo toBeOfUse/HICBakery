@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useCart } from "./CartProvider";
+import { useCart } from "./cart-provider";
 import styles from "./header.module.css";
 import { useRouter } from "next/router";
 import { useState } from "react";

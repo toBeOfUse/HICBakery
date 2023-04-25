@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Fragment } from "react";
 import { Reveal } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
-import Header from "../components/Header.jsx";
+import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import styles from "../styles/Home.module.css";
 import db from "../components/db.js";

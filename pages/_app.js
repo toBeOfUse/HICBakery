@@ -1,4 +1,4 @@
-import { CartProvider } from "../components/CartProvider";
+import { CartProvider } from "../components/cart-provider";
 import "../styles/globals.css";
 import "../styles/Home.module.css";
 

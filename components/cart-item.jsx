@@ -2,7 +2,7 @@ import Link from "next/link";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart-item.module.css";
 import { useState } from "react";
-import { useCart } from "./CartProvider";
+import { useCart } from "./cart-provider";
 
 export default function CartItem({ product, quantity_in_cart }) {
     const [_, updateCart] = useCart();

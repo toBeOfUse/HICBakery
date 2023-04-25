@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/search.module.css"
 import FilterBox from "../components/filter-box.jsx"
-import Header from "../components/Header.jsx"
+import Header from "../components/header.jsx"
 import ProductSearchResultItem from "../components/product-search-result-item.jsx"
 import Footer from "../components/footer"
 import { useEffect, useState } from "react";

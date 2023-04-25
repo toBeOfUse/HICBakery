@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useMemo, useRef, useState } from "react";
-import { useCart } from "../components/CartProvider";
-import Header from "../components/Header";
+import { useCart } from "../components/cart-provider";
+import Header from "../components/header";
 import Footer from "../components/footer";
 import styles from "../styles/checkout.module.css";
 import { formatPrice } from "../utilities/format.js";

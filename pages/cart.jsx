@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
 import { useMemo } from "react";
-import Header from "../components/Header";
+import Header from "../components/header";
 import Footer from "../components/footer";
 import CartItem from "../components/cart-item";
 import { formatPrice } from "../utilities/format";
 import styles from "../styles/cart.module.css";
-import { useCart } from "../components/CartProvider";
+import { useCart } from "../components/cart-provider";
 
 const Cart = () => {
   const [cartItems, _] = useCart();
