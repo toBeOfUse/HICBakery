@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useCart } from "../components/CartProvider";
 import Header from "../components/Header";
 import Footer from "../components/footer";
-import styles from "../styles/Checkout.module.css";
+import styles from "../styles/checkout.module.css";
 import { formatPrice } from "../utilities/format.js";
 import FormField from "../components/form-field";
 
@@ -13,6 +13,19 @@ const Checkout = () => {
     cart.reduce(
       (acc, val) => acc + val.product.price * val.quantity_in_cart, 0
     ), [cart]);
+
+  const [showValidation, setShowValidation] = useState(false);
+
+  const formRef = useRef(null);
+
+  const submit = () => {
+    if (formRef.current) {
+      const valid = formRef.current.reportValidity();
+      if (!valid) {
+        setShowValidation(true);
+      }
+    }
+  }
 
   return (
     <>
@@ -26,53 +39,58 @@ const Checkout = () => {
         <h2 className={styles.header}>Checkout</h2>
 
         <div className={styles.contentContainer}>
-          <div id={styles.formsContainer}>
+          <form ref={formRef} onInvalid={e => e.preventDefault()}
+            className={showValidation ? styles.validation : ''}>
+            <div id={styles.formsContainer}>
 
-            <div className={styles.form}>
-              <h3>Billing Address</h3>
-              <div className="container">
+              <div className={styles.form}>
+                <h3>Billing Address</h3>
+                <div className="container">
+
+                  <div className={styles.inputsRow}>
+                    <FormField label="Name (First)" placeholder="Joe" />
+                    <FormField label="Name (Last)" placeholder="Shmoe" />
+                  </div>
+
+                  <div className={styles.inputsRow}>
+                    <FormField label="Address" placeholder="641 South Irving Boulevard" />
+                  </div>
+
+                  <div className={styles.inputsRow}>
+                    <FormField label="City" placeholder="Los Angeles" />
+                    <FormField label="State" placeholder="CA" pattern="([A-Z]|[a-z]){2}"
+                      warning="Two letters required" style={{ flexShrink: 1.3 }} />
+                    <FormField label="ZIP Code" placeholder="90005" pattern="\d{5}" warning="Five digits required" />
+                  </div>
+
+                </div>
+              </div>
+
+              <div className={styles.form}>
+                <h3>Credit Card Information</h3>
 
                 <div className={styles.inputsRow}>
-                  <FormField label="Name (First)" placeholder="Joe" />
-                  <FormField label="Name (Last)" placeholder="Shmoe" />
+                  <FormField label="Credit Card Number" placeholder="1111 2222 3333 444"
+                    pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" warning="Sixteen digits required" />
                 </div>
 
                 <div className={styles.inputsRow}>
-                  <FormField label="Address" placeholder="641 South Irving Boulevard" />
+                  <FormField label="CVV" placeholder="123" pattern="\d{3}" warning="Three digits required" />
+                  <FormField label="Expiration" placeholder="12/23" pattern="\d\d\/\d\d"
+                    warning="MM/YY date required" />
                 </div>
 
+              </div>
+
+              <div className={styles.form}>
+                <h3>Contact Information</h3>
                 <div className={styles.inputsRow}>
-                  <FormField label="City" placeholder="Los Angeles" />
-                  <FormField label="State" placeholder="CA" style={{ flexShrink: 1.5 }} />
-                  <FormField label="ZIP Code" placeholder="90005" />
+                  <FormField label="Email" placeholder="joeshmoe@earthlink.com" warning="Valid email required" pattern="\w+@\w+\.\w{2,}" />
                 </div>
-
-              </div>
-            </div>
-
-            <div className={styles.form}>
-              <h3>Credit Card Information</h3>
-
-              <div className={styles.inputsRow}>
-                <FormField label="Credit Card Number" placeholder="1111 2222 3333 444" />
-              </div>
-
-              <div className={styles.inputsRow}>
-                <FormField label="CVV" placeholder="123" />
-                <FormField label="Expiration" placeholder="12/23" />
               </div>
 
             </div>
-
-            <div className={styles.form}>
-              <h3>Contact Information</h3>
-              <div className={styles.inputsRow}>
-                <FormField label="Email" placeholder="joeshmoe@earthlink.com" />
-              </div>
-            </div>
-
-          </div>
-
+          </form>
           <div id={styles.itemsContainer}>
             <h4>
               Your items:
@@ -94,7 +112,7 @@ const Checkout = () => {
                 <tr><td>Your total:</td><td /><td>${formatPrice(totalPrice)}</td></tr>
               </tbody>
             </table>
-            <button>Complete Purchase</button>
+            <button onClick={submit}>Complete Purchase</button>
           </div>
         </div>
 

@@ -1,4 +1,6 @@
-export default function FormField({ label, placeholder, icon, style, hideLabel }) {
+import styles from "../styles/checkout.module.css";
+
+export default function FormField({ label, placeholder, icon, style, hideLabel, pattern, warning }) {
     // https://www.30secondsofcode.org/js/s/slugify/
     const id = label
         .toLowerCase()
@@ -11,6 +13,7 @@ export default function FormField({ label, placeholder, icon, style, hideLabel }
             {label}:
         </span>}
         {icon ? <i class={`fa ${icon}`} /> : null}
-        <input id={id} placeholder={placeholder} style={{ width: "100%" }} />
+        <input pattern={pattern} required id={id} placeholder={placeholder} style={{ width: "100%" }} />
+        <span className={styles.validationWarning}>{warning ?? "Required"}</span>
     </label>
 }

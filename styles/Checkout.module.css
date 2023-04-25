@@ -84,3 +84,12 @@
   width: 400px;
   margin-bottom: 30px;
 }
+
+.validationWarning {
+  visibility: hidden;
+}
+
+form.validation input:invalid+span.validationWarning {
+  visibility: visible;
+  color: red;
+}
