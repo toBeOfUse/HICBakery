@@ -15,14 +15,27 @@
 }
 
 .searchResult {
-    min-height: 20rem;
-    min-width: 10rem;
+    background-color: rgba(203, 239, 231, 0.3);
+    border-radius: 15px;
+    height: 26rem;
     width: 100%;
     margin: auto;
     padding: 20px;
 }
 
-.searchResult>h1 {
+.searchResult:hover {
+    background-color: rgba(203, 239, 231, 0.8);
+}
+
+.searchResult:nth-of-type(even) {
+    background-color: rgba(230, 230, 250, 0.3);
+}
+
+.searchResult:nth-of-type(even):hover {
+    background-color: rgba(230, 230, 250, 0.8);
+}
+
+.searchResult > h1 {
     text-align: center;
 }
 
@@ -37,11 +50,13 @@
 }
 
 .productDesc {
+    user-select: none;
     text-align: center;
     margin-bottom: 3%;
 }
 
 .productPrice {
+    user-select: none;
     font-size: 1.5rem;
 }
 
