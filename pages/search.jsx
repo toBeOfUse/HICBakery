@@ -87,7 +87,7 @@ export default function Search() {
     return (
         <>
             <Head>
-                <title>{searchInput ? searchInput + " - " : ""}Search Results</title>
+                <title>{currentSearch ? currentSearch + " - " : ""}Search Results</title>
             </Head>
             <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
             <main id={styles.SearchContainer}>

@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import db from "../components/db";
 import { useCart } from "../components/CartProvider";
+import { useRouter } from "next/router";
 
 
 export async function getServerSideProps(context) {
@@ -29,6 +30,12 @@ const ProductInfo = ({ product }) => {
     }).then(updateCart);
   };
 
+  const router = useRouter();
+  const [fromSearch, setFromSearch] = useState(false);
+  useEffect(() => {
+    setFromSearch(router.query.from === "search");
+  }, [router.isReady]);
+
   return (
     <>
       <Head>
@@ -38,14 +45,19 @@ const ProductInfo = ({ product }) => {
       <Header collapsed={true} />
 
       {/* return to results button  */}
-      <div className="w3-container w3-padding-32 w3-margin-right w3-border-left">
-        <div>
-          <Link className="w3-btn w3-transparent w3-border-left w3-hover-aqua" href="/search"> <h4> ← Return to Search Results </h4> </Link>
+      {fromSearch &&
+        <div className="w3-container w3-padding-16 w3-margin-right w3-border-left">
+          <div>
+            <button className="w3-btn w3-transparent w3-border-left w3-hover-aqua"
+              onClick={() => router.back()}>
+              <h4> ← Return to Search Results </h4>
+            </button>
+          </div>
         </div>
-      </div>
+      }
 
       {/* Add a background color and large text to the whole page */}
-      <div className="w3-white w3-large">
+      <div className="w3-white w3-large" style={{ marginTop: 20 }}>
 
 
         {/* Contains product photo and info */}
