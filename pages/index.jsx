@@ -32,7 +32,7 @@ export function getServerSideProps(context) {
       left join product_categories on categories.name=product_categories.category_name
       left join products on product_categories.product_id=products.id
       where categories.featured=true
-      order by categories.name;`).all();
+      order by random();`).all();
   const groupedProducts = {};
   for (const product of featuredProducts) {
     if (!(product.category_name in groupedProducts)) {
