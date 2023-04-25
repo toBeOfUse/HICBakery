@@ -5,20 +5,32 @@ import Header from "../components/header.jsx"
 import ProductSearchResultItem from "../components/product-search-result-item.jsx"
 import Footer from "../components/footer"
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import { Flipper, Flipped } from 'react-flip-toolkit';
-import { SearchFilterContext, useFilters } from "../components/filter-context";
+import { SearchFilterContext } from "../components/filter-context";
 
-export default function Search() {
-    const [searchInput, setSearchInput] = useState("");
+export function getServerSideProps(context) {
+    // because useRouter() does not have data right away, causing calls to
+    // /api/search with missing keywords and filters, but this does
+    return { props: { query: context.query, key: JSON.stringify(context.query) } };
+}
+
+function ensureArray(arrayOrItem) {
+    if (!arrayOrItem) {
+        return [];
+    } else if (Array.isArray(arrayOrItem)) {
+        return arrayOrItem;
+    } else {
+        return [arrayOrItem];
+    }
+}
+
+export default function Search({ query }) {
+    const [searchInput, setSearchInput] = useState(query.keyword || "");
     const [searchResults, setSearchResults] = useState([]);
-    const [activeFilters, setActiveFilters] = useState([]);
-    const [currentSearch, setCurrentSearch] = useState("");
+    const [activeFilters, setActiveFilters] = useState(ensureArray(query.category_filter));
+    const [currentSearch, setCurrentSearch] = useState(query.keyword || "");
 
     function doSearch(searchInput) {
-        if (!router.isReady) {
-            return;
-        }
         setCurrentSearch(searchInput);
         const params = new URLSearchParams();
         if (searchInput) {
@@ -43,43 +55,15 @@ export default function Search() {
             });
     }
 
-    const router = useRouter();
-
     useEffect(() => {
-        let newFilter = router.query.category_filter;
-        if (newFilter) {
-            if (!Array.isArray(newFilter)) {
-                newFilter = [newFilter];
-            }
-            setActiveFilters(af => af.concat(newFilter));
-        }
-    }, [router.query.category_filter]);
-
-    useEffect(() => {
-        if (router.query.keyword || activeFilters.length) {
-            setSearchInput(router.query.keyword);
-            // setSearchInput does not immediately affect the searchInput
-            // variable (it changes when Search() is called again and this
-            // component is re-rendered), so the new search input must be passed
-            // to doSearch directly
-            doSearch(router.query.keyword);
-        } else {
-            doSearch("");
-        }
-    }, [router.query.keyword, activeFilters]);
+        doSearch(currentSearch || "");
+    }, [currentSearch, activeFilters]);
 
     function editFilters(name, adding) {
-        setActiveFilters(prevState => {
-            let updatedFilters = [...prevState];
-            if (adding) {
-                if (!updatedFilters.includes(name)) {
-                    updatedFilters.push(name);
-                }
-            } else {
-                updatedFilters = updatedFilters.filter(filter => filter !== name)
-            }
-            return updatedFilters;
-        });
+        setActiveFilters(prevState => adding ?
+            [...prevState, name] :
+            prevState.filter(f => f !== name)
+        );
     }
 
     const fadeLengthMS = 500;
@@ -113,7 +97,7 @@ export default function Search() {
                 <SearchFilterContext.Provider value={[activeFilters, editFilters]}>
                     <FilterBox currentSearch={currentSearch} />
                 </SearchFilterContext.Provider>
-                <Flipper flipKey={router.isReady ? searchResults.map(s => s.id).join(',') : ""}
+                <Flipper flipKey={searchResults.map(s => s.id).join(',')}
                     element="section" className={styles.searchResultContainer}>
                     {searchResults.map((product) =>
                         <Flipped flipId={product.id} key={product.id} onAppear={fadeIn} onExit={fadeOut}>
