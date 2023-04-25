@@ -98,7 +98,7 @@ const ProductInfo = ({ product, suggestions }) => {
                     <input type="number" value={cartQuantity} style={{ width: 50 }}
                       onChange={e => setCartQuantity(parseInt(e.target.value))}
                       min="1" max="5"></input>
-                    <Button onClick={addToCart} style={{ marginLeft: "10px" }}> + Add to Cart </Button>
+                    <Button onClick={addToCart} style={{ margin: "0 10px" }}> + Add to Cart</Button>
                     {inCart && <span>({inCart} in cart now)</span>}
                   </div>
                 </div>
