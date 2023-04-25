@@ -34,6 +34,10 @@
   margin-top: 5px;
 }
 
+.category h3::first-letter {
+  text-transform: capitalize;
+}
+
 .categoryTextContainer {
   width: 400px;
   margin: 30px;
