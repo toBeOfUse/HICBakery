@@ -7,6 +7,7 @@ import Footer from "../components/footer"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Flipper, Flipped } from 'react-flip-toolkit';
+import { SearchFilterContext, useFilters } from "../components/filter-context";
 
 export default function Search() {
     const [searchInput, setSearchInput] = useState("");
@@ -71,18 +72,16 @@ export default function Search() {
         console.log('Active filters update!', activeFilters);
     }, [activeFilters]);
 
-    function addFilter(header, name, clicked) {
+    function editFilters(name, adding) {
         setActiveFilters(prevState => {
             let updatedFilters = [...prevState];
-            if (clicked) {
+            if (adding) {
                 if (!updatedFilters.includes(name)) {
                     updatedFilters.push(name);
                 }
             }
             else {
-                if (updatedFilters.includes(name)) {
-                    updatedFilters = updatedFilters.filter(filter => filter !== name)
-                }
+                updatedFilters = updatedFilters.filter(filter => filter !== name)
             }
             return updatedFilters;
         });
@@ -116,8 +115,9 @@ export default function Search() {
             </Head>
             <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
             <main id={styles.SearchContainer}>
-                <FilterBox currentSearch={currentSearch} addFilter={addFilter} />
-                {/* <section id={styles.SearchResultContainer}> */}
+                <SearchFilterContext.Provider value={[activeFilters, editFilters]}>
+                    <FilterBox currentSearch={currentSearch} />
+                </SearchFilterContext.Provider>
                 <Flipper flipKey={router.isReady ? searchResults.map(s => s.id).join(',') : ""}
                     element="section" className={styles.searchResultContainer}>
                     {searchResults.map((product) =>
@@ -126,7 +126,6 @@ export default function Search() {
                         </Flipped>
                     )}
                 </Flipper>
-                {/* </section> */}
             </main>
             <Footer />
         </>
