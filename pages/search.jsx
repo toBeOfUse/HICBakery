@@ -56,6 +56,7 @@ export default function Search({ query }) {
     }
 
     useEffect(() => {
+        console.log(activeFilters);
         doSearch(currentSearch || "");
     }, [currentSearch, activeFilters]);
 

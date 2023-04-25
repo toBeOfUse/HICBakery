@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { batchProductsByCategory, categoryJoinQuery } from "../utilities/categories";
 import CategorySuggester from "../components/category-suggester";
 import Button from "../components/button";
-
+import Router from "next/router";
 
 export async function getServerSideProps(context) {
   const productID = context.query.product ?? 1;
@@ -111,7 +111,7 @@ const ProductInfo = ({ product, suggestions }) => {
                     <Button>Ingredients</Button>
                   </div>
                   <div className="w3-large">
-                    <Button>Allergens</Button>
+                    <Button onClick={()=> {router.push(`/allergenInfo`);}}>Allergens</Button>
                   </div>
                 </div>
               </li>
