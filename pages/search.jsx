@@ -75,8 +75,7 @@ export default function Search() {
                 if (!updatedFilters.includes(name)) {
                     updatedFilters.push(name);
                 }
-            }
-            else {
+            } else {
                 updatedFilters = updatedFilters.filter(filter => filter !== name)
             }
             return updatedFilters;

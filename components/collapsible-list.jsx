@@ -13,12 +13,8 @@ export default function CollapsibleList({ header, items }) {
     function toggleCollapse() {
         setCollapsed(!collapsed);
     }
-    function onOptionClick(index, name) {
-        if (!selectedOptions.includes(index)) {
-            editFilters(name.toLowerCase(), true);
-        } else {
-            editFilters(name.toLowerCase(), false);
-        }
+    function onOptionClick(name) {
+        editFilters(name, !selectedOptions.includes(name));
     }
     return (
         <li className={styles.category}>
@@ -26,7 +22,7 @@ export default function CollapsibleList({ header, items }) {
             <ul className={`${styles.options} ${collapsed ? styles.collapsed : styles.expanded}`}>
                 {!collapsed && items.map((item, index) =>
                     <li key={index}
-                        onClick={() => onOptionClick(index, item)}
+                        onClick={() => onOptionClick(item)}
                         className={`${styles.option} ${selectedOptions.includes(item) ? styles.selected : null}`}>
                         {item}
                     </li>
