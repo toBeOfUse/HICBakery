@@ -25,7 +25,6 @@ function ensureArray(arrayOrItem) {
 }
 
 export default function Search({ query }) {
-    const [searchInput, setSearchInput] = useState(query.keyword || "");
     const [searchResults, setSearchResults] = useState([]);
     const [activeFilters, setActiveFilters] = useState(ensureArray(query.category_filter));
     const [currentSearch, setCurrentSearch] = useState(query.keyword || "");
@@ -93,7 +92,7 @@ export default function Search({ query }) {
             <Head>
                 <title>{currentSearch ? currentSearch + " - Search Results" : "Search Results"}</title>
             </Head>
-            <Header searchInput={searchInput} doSearch={doSearch} setSearchInput={setSearchInput} collapsed={true} />
+            <Header query={query} collapsed={true} />
             <main id={styles.SearchContainer}>
                 <SearchFilterContext.Provider value={[activeFilters, editFilters]}>
                     <FilterBox currentSearch={currentSearch} />
