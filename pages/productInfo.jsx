@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import db from "../components/db";
+import styles from "../styles/productInfo.module.css"
 import { useCart } from "../components/cart-provider";
 import { useRouter } from "next/router";
 import { batchProductsByCategory, categoryJoinQuery } from "../utilities/categories";
@@ -21,13 +22,15 @@ export async function getServerSideProps(context) {
     ${categoryJoinQuery}
       where categories.name in (${categories.map(c => `'${c.category_name}'`).join(",")})
   `).all();
-  return { props: { product, suggestions: batchProductsByCategory(relevantProducts) } };
+  return { props: { product, suggestions: batchProductsByCategory(relevantProducts), ingredients: JSON.parse(product.ingredients) } };
 }
 
 
-const ProductInfo = ({ product, suggestions }) => {
+const ProductInfo = ({ product, suggestions, ingredients }) => {
   const [cart, updateCart] = useCart();
   const [cartQuantity, setCartQuantity] = useState(1);
+  const [displayIngredients, setDisplayIngredients] = useState(false);
+
   const inCart = useMemo(
     () => cart.find(c => c.product.id == product.id)?.quantity_in_cart,
     [cart, product.id]
@@ -106,13 +109,18 @@ const ProductInfo = ({ product, suggestions }) => {
 
               {/* Container containing ingredients and allergens button*/}
               <li>
-                <div className="w3-row w3-container">
+                <div className="w3-row w3-container" style={{position: "relative"}}>
                   <div className="w3-quarter w3-large">
-                    <Button>Ingredients</Button>
+                    <Button onClick={()=> setDisplayIngredients(!displayIngredients)}>Ingredients</Button>
                   </div>
                   <div className="w3-large">
                     <Button onClick={()=> {router.push(`/allergenInfo`);}}>Allergens</Button>
                   </div>
+                  <ul className={`${styles.ingredientsDisplay} ${displayIngredients ? styles.visible : ""}`}>
+                    {ingredients.map((ingredient, index) => {
+                        return <li key={index}>{ingredient}</li>
+                    })}
+                  </ul>
                 </div>
               </li>
             </ul>

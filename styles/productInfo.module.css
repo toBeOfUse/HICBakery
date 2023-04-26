@@ -1,0 +1,17 @@
+.ingredientsDisplay {
+    display: none;
+    padding: 0;
+    text-align: center;
+    top: 123%;
+    right: 71.5%;
+    list-style: none;
+    position: absolute;
+    width: 10rem;
+    background-color: rgba(230, 230, 250);
+    border-radius: 10px;
+    box-shadow: black 2px 1px 6px;
+}
+
+.visible {
+    display: block;
+}
