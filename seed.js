@@ -95,6 +95,49 @@ insert or replace into allergens
         'vanilla extract',
         '${JSON.stringify(["corn syrup", "pure sugar"])}'
     );
+
+insert or replace into allergens
+    (allergen_name, alternatives)
+    values (
+        'gluten',
+        '${JSON.stringify(["gluten-free flour", "almond flour", "coconut flour"])}'
+    );
+
+insert or replace into allergens
+    (allergen_name, alternatives)
+    values (
+        'dairy',
+        '${JSON.stringify(["almond milk", "coconut milk", "soy milk", "oat milk"])}'
+    );
+
+insert or replace into allergens
+    (allergen_name, alternatives)
+    values (
+        'egg',
+        '${JSON.stringify(["flax egg", "chia egg", "applesauce", "yogurt", "silken tofu"])}'
+    );
+
+insert or replace into allergens
+    (allergen_name, alternatives)
+    values (
+        'nuts',
+        '${JSON.stringify(["sunflower seeds", "pumpkin seeds", "soy nuts"])}'
+    );
+
+insert or replace into allergens
+    (allergen_name, alternatives)
+    values (
+        'soy',
+        '${JSON.stringify(["coconut aminos", "liquid aminos", "tamari"])}'
+    );
+
+insert or replace into allergens
+    (allergen_name, alternatives)
+    values (
+        'shellfish',
+        '${JSON.stringify(["imitation crab", "plant-based shrimp", "tofu"])}'
+    );
+
 `);
 
 function createProduct(
